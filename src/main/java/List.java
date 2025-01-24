@@ -78,7 +78,7 @@ public class List{
      * @param item The task to be added.
      */
     public void add(Pair item){
-        System.out.println("Got it. I've added this task: ");
+        System.out.println("Got it. I've added this task:");
         System.out.println(" " + item.toString());
         this.list.add(item);
         System.out.println("Now you have " + this.list.size() + " tasks in the list");
