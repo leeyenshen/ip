@@ -22,9 +22,21 @@ public class Listen extends Event{
         } else if (temp.equals("list")) {
             this.list.display();
             return new Listen(this.list);
+        } else if (temp.startsWith("mark")) {
+            String[] parts = temp.split("\\s+");
+            if (parts.length == 2 && isInteger(parts[1])) {
+               this.list.mark(Integer.parseInt(parts[1]));
+            }
+            return new Listen(this.list);
+        } else if (temp.startsWith("unmark")) {
+            String[] parts = temp.split("\\s+");
+            if (parts.length == 2 && isInteger(parts[1])) {
+                this.list.unmark(Integer.parseInt(parts[1]));
+            }
+            return new Listen(this.list);
         } else {
             System.out.println(Event.line);
-            this.list.add(command);
+            this.list.add(new Pair(command, false));
             System.out.println(Event.line);
             return new Listen(this.list);
         }
