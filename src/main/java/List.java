@@ -52,8 +52,10 @@ public class List{
     }
 
     public void add(Pair item){
-        System.out.println("added: " + item.getItem());
+        System.out.println("Got it. I've added this task: ");
+        System.out.println(" " + item.toString());
         this.list.add(item);
+        System.out.println("Now you have " + this.list.size() + " tasks in the list");
     }
 
     public void display() {
@@ -61,12 +63,7 @@ public class List{
         for (int i = 0; i < list.size(); i++) {
             Pair temp = list.get(i);
             System.out.print((i + 1) + ".");
-            if (temp.isDone()) {
-                System.out.print("[X] ");
-            } else {
-                System.out.print("[ ] ");
-            }
-            System.out.println(temp.getItem());
+            System.out.println(temp.toString());
         }
         System.out.println(Event.line);
     }
