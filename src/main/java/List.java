@@ -12,7 +12,7 @@ public class List{
     }
 
     public void mark(int x) {
-        if (x >= this.list.size() || x < 0) {
+        if (x > this.list.size() || x <= 0) {
             System.out.println(Event.line);
             System.out.println("That item does not exist");
             System.out.println(Event.line);
@@ -27,7 +27,7 @@ public class List{
         }
         item.mark(true);
         System.out.println(Event.line);
-        System.out.println("Nice! I've marked this task as done:\n");
+        System.out.println("Nice! I've marked this task as done:");
         System.out.println(" [X] " + item.getItem());
         System.out.println(Event.line);
     }
@@ -46,7 +46,7 @@ public class List{
         }
         item.mark(false);
         System.out.println(Event.line);
-        System.out.println("OK, I've marked this task as not done:\n");
+        System.out.println("OK, I've marked this task as not done:");
         System.out.println(" [ ] " + item.getItem());
         System.out.println(Event.line);
     }
