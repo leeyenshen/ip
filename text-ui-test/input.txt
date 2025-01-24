@@ -1,7 +1,15 @@
-todo Read a book
-deadline Submit report /by 2025-01-30
-event Team meeting /from 2pm /to 4pm
+todo tom
+list
+test
+deadline 1
+deadline tom by tonight
+deadline tom /by tonight
+deadline tom /by
+deadlinde tom /by now
+event gala /from now /to hi
 list
 mark 1
-unmark 1
-bye
+mark 1
+unmark 2
+mark 2
+list

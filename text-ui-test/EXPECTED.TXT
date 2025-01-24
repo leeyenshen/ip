@@ -4,32 +4,58 @@ What can I do for you?
 ========================================
 ========================================
 Got it. I've added this task:
- [T][ ] Read a book
+ [T][ ] tom
 Now you have 1 tasks in the list
 ========================================
 ========================================
+1.[T][ ] tom
+========================================
+========================================
+OOPS!!! I'm sorry, but I don't know what the command 'test' means. Please try again.
+========================================
+========================================
+OOPS!!! A deadline must include '/by' followed by the due date. Example: deadline Finish report /by tomorrow.
+========================================
+========================================
+OOPS!!! A deadline must include '/by' followed by the due date. Example: deadline Finish report /by tomorrow.
+========================================
+========================================
 Got it. I've added this task:
- [D][ ] Submit report (by: 2025-01-30)
+ [D][ ] tom (by: tonight)
 Now you have 2 tasks in the list
 ========================================
 ========================================
+OOPS!!! The description or due date of a deadline cannot be empty.
+========================================
+========================================
+OOPS!!! I'm sorry, but I don't know what the command 'deadlinde tom /by now' means. Please try again.
+========================================
+========================================
 Got it. I've added this task:
- [E][ ] Team meeting (from: 2pm to: 4pm)
+ [E][ ] gala (from: now to: hi)
 Now you have 3 tasks in the list
 ========================================
 ========================================
-1.[T][ ] Read a book
-2.[D][ ] Submit report (by: 2025-01-30)
-3.[E][ ] Team meeting (from: 2pm to: 4pm)
+1.[T][ ] tom
+2.[D][ ] tom (by: tonight)
+3.[E][ ] gala (from: now to: hi)
 ========================================
 ========================================
 Nice! I've marked this task as done:
- [T][X] Read a book
+ [T][X] tom
 ========================================
 ========================================
-OK, I've marked this task as not done:
- [T][ ] Read a book
+OOPS!!! You have done it JERRYYYYYY!!!!
 ========================================
 ========================================
-Bye. Hope to see you again soon!
+OOPS!!! You have NOT done it JERRYYYYYY!!!!
+========================================
+========================================
+Nice! I've marked this task as done:
+ [D][X] tom (by: tonight)
+========================================
+========================================
+1.[T][X] tom
+2.[D][X] tom (by: tonight)
+3.[E][ ] gala (from: now to: hi)
 ========================================

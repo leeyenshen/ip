@@ -27,25 +27,17 @@ public class List{
      *
      * @param x The index of the task to mark as done (1-based index).
      */
-    public void mark(int x) {
+    public void mark(int x) throws ChatbotException {
         if (x > this.list.size() || x <= 0) {
-            System.out.println(Event.line);
-            System.out.println("That item does not exist");
-            System.out.println(Event.line);
-            return;
+            throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
         Pair item = this.list.get(x - 1);
         if (item.isDone()) {
-            System.out.println(Event.line);
-            System.out.println("You have done it JERRYYYYYY!!!!");
-            System.out.println(Event.line);
-            return;
+            throw new ChatbotException("You have done it JERRYYYYYY!!!!");
         }
         item.mark(true);
-        System.out.println(Event.line);
         System.out.println("Nice! I've marked this task as done:");
         System.out.println(" " + item);
-        System.out.println(Event.line);
     }
 
     /**
@@ -53,23 +45,17 @@ public class List{
      *
      * @param x The index of the task to mark as not done (1-based index).
      */
-    public void unmark(int x) {
+    public void unmark(int x) throws ChatbotException{
         if (x >= this.list.size() || x < 0) {
-            System.out.println("That item does not exist");
-            return;
+            throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
         Pair item = this.list.get(x - 1);
         if (!item.isDone()) {
-            System.out.println(Event.line);
-            System.out.println("You have NOT done it JERRYYYYYY!!!!");
-            System.out.println(Event.line);
-            return;
+            throw new ChatbotException("You have NOT done it JERRYYYYYY!!!!");
         }
         item.mark(false);
-        System.out.println(Event.line);
         System.out.println("OK, I've marked this task as not done:");
         System.out.println(" " + item);
-        System.out.println(Event.line);
     }
 
     /**
@@ -88,13 +74,11 @@ public class List{
      * Displays all tasks in the list with their status and details.
      */
     public void display() {
-        System.out.println(Event.line);
         for (int i = 0; i < list.size(); i++) {
             Pair temp = list.get(i);
             System.out.print((i + 1) + ".");
             System.out.println(temp.toString());
         }
-        System.out.println(Event.line);
     }
 
     /**
