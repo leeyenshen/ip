@@ -46,7 +46,7 @@ public class List{
      * @param x The index of the task to mark as not done (1-based index).
      */
     public void unmark(int x) throws ChatbotException{
-        if (x >= this.list.size() || x < 0) {
+        if (x >= this.list.size() || x <= 0) {
             throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
         Pair item = this.list.get(x - 1);
@@ -56,6 +56,22 @@ public class List{
         item.mark(false);
         System.out.println("OK, I've marked this task as not done:");
         System.out.println(" " + item);
+    }
+
+    /**
+     * Deletes a task at the specified index.
+     *
+     * @param x The index of the task to delete (1-based index).
+     * @throws ChatbotException If the index is invalid.
+     */
+    public void delete(int x) throws ChatbotException {
+        if (x <= 0 || x > this.list.size()) {
+            throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
+        }
+        Pair removedTask = this.list.remove(x - 1);
+        System.out.println("Noted. I've removed this task:");
+        System.out.println("  " + removedTask.toString());
+        System.out.println("Now you have " + this.list.size() + " tasks in the list.");
     }
 
     /**

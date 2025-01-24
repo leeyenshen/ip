@@ -89,12 +89,10 @@ public class Listen extends Event{
                 break;
 
             case "mark":
-                validateIndex(parts, "mark");
                 this.list.mark(Integer.parseInt(parts[1]));
                 break;
 
             case "unmark":
-                validateIndex(parts, "unmark");
                 this.list.unmark(Integer.parseInt(parts[1]));
                 break;
 
@@ -102,11 +100,9 @@ public class Listen extends Event{
                 this.list.display();
                 break;
 
-            case "bye":
-                System.out.println(Event.line);
-                System.out.println("Goodbye! See you next time!");
-                System.out.println(Event.line);
-                return;
+            case "delete":
+                this.list.delete(Integer.parseInt(parts[1]));
+                break;
 
             default:
                 throw new ChatbotException("I'm sorry, but I don't know what the command '" + command + "' means. Please try again.");
