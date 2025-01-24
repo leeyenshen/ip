@@ -4,58 +4,101 @@ What can I do for you?
 ========================================
 ========================================
 Got it. I've added this task:
- [T][ ] tom
+ [T][ ] read book
 Now you have 1 tasks in the list
 ========================================
 ========================================
-1.[T][ ] tom
+OOPS!!! JERRYYYYY!!!! The description of a todo cannot be empty. Please provide a task description.
 ========================================
 ========================================
-OOPS!!! I'm sorry, but I don't know what the command 'test' means. Please try again.
-========================================
-========================================
-OOPS!!! A deadline must include '/by' followed by the due date. Example: deadline Finish report /by tomorrow.
-========================================
-========================================
-OOPS!!! A deadline must include '/by' followed by the due date. Example: deadline Finish report /by tomorrow.
+OOPS!!! JERRYYYYY!!!! The description of a todo cannot be empty. Please provide a task description.
 ========================================
 ========================================
 Got it. I've added this task:
- [D][ ] tom (by: tonight)
+ [D][ ] return book (by: June 6th)
 Now you have 2 tasks in the list
 ========================================
 ========================================
 OOPS!!! The description or due date of a deadline cannot be empty.
 ========================================
 ========================================
-OOPS!!! I'm sorry, but I don't know what the command 'deadlinde tom /by now' means. Please try again.
+OOPS!!! A deadline must include '/by' followed by the due date. Example: deadline Finish report /by tomorrow.
 ========================================
 ========================================
 Got it. I've added this task:
- [E][ ] gala (from: now to: hi)
+ [E][ ] project meeting (from: Aug 6th 2pm to: 4pm)
 Now you have 3 tasks in the list
 ========================================
 ========================================
-1.[T][ ] tom
-2.[D][ ] tom (by: tonight)
-3.[E][ ] gala (from: now to: hi)
+OOPS!!! The description or time periods of an event cannot be empty.
+========================================
+========================================
+OOPS!!! The description or time periods of an event cannot be empty.
+========================================
+========================================
+OOPS!!! The description or time periods of an event cannot be empty.
 ========================================
 ========================================
 Nice! I've marked this task as done:
- [T][X] tom
+ [T][X] read book
+========================================
+========================================
+Nice! I've marked this task as done:
+ [E][X] project meeting (from: Aug 6th 2pm to: 4pm)
+========================================
+========================================
+OK, I've marked this task as not done:
+ [T][ ] read book
+========================================
+========================================
+OOPS!!! This item does not exist JERRYYYYYY!!!!
+========================================
+========================================
+1.[T][ ] read book
+2.[D][ ] return book (by: June 6th)
+3.[E][X] project meeting (from: Aug 6th 2pm to: 4pm)
+========================================
+========================================
+Noted. I've removed this task:
+  [D][ ] return book (by: June 6th)
+Now you have 2 tasks in the list.
+========================================
+========================================
+OOPS!!! This item does not exist JERRYYYYYY!!!!
+========================================
+========================================
+Got it. I've added this task:
+ [T][ ] join sports club
+Now you have 3 tasks in the list
+========================================
+========================================
+1.[T][ ] read book
+2.[E][X] project meeting (from: Aug 6th 2pm to: 4pm)
+3.[T][ ] join sports club
 ========================================
 ========================================
 OOPS!!! You have done it JERRYYYYYY!!!!
 ========================================
 ========================================
-OOPS!!! You have NOT done it JERRYYYYYY!!!!
+OK, I've marked this task as not done:
+ [E][ ] project meeting (from: Aug 6th 2pm to: 4pm)
 ========================================
 ========================================
-Nice! I've marked this task as done:
- [D][X] tom (by: tonight)
+Noted. I've removed this task:
+  [E][ ] project meeting (from: Aug 6th 2pm to: 4pm)
+Now you have 2 tasks in the list.
 ========================================
 ========================================
-1.[T][X] tom
-2.[D][X] tom (by: tonight)
-3.[E][ ] gala (from: now to: hi)
+OOPS!!! This item does not exist JERRYYYYYY!!!!
+========================================
+========================================
+OOPS!!! This item does not exist JERRYYYYYY!!!!
+========================================
+========================================
+OOPS!!! This item does not exist JERRYYYYYY!!!!
+========================================
+========================================
+OOPS!!! This item does not exist JERRYYYYYY!!!!
+========================================
+Bye. Hope to see you again soon!
 ========================================
