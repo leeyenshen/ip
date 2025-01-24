@@ -1,12 +1,25 @@
-import javax.swing.plaf.synth.SynthTableHeaderUI;
 import java.util.Scanner;
+/**
+ * Listens for user commands and processes them to perform actions on the task list.
+ */
 public class Listen extends Event{
     private static final Scanner scanner = new Scanner(System.in);
     private List list;
 
+    /**
+     * Constructs a Listen instance with the specified task list.
+     *
+     * @param list The task list to manage and update.
+     */
     public Listen(List list) {
         this.list = list;
     }
+
+    /**
+     * Simulates the event by listening for user input and processing commands.
+     *
+     * @return A new Event based on the user command, or the current Listen instance if no valid command is entered.
+     */
     public Event simulate() {
         if (!scanner.hasNextLine()) {
             return this;
@@ -66,6 +79,12 @@ public class Listen extends Event{
         }
     }
 
+    /**
+     * Checks if the given input is an integer.
+     *
+     * @param input The input string to check.
+     * @return True if the input is an integer, false otherwise.
+     */
     private boolean isInteger(String input) {
         try {
             Integer.parseInt(input);
