@@ -6,11 +6,15 @@ public class Tom {
                 + "    | |    | |_| | | |  | |\n"
                 + "    |_|    \\____/  |_|  |_|\n";
         String line = "========================================";
-        System.out.println(logo);
+        //System.out.println(logo);
         System.out.println(line);
-        System.out.println("Hello! I'm Tom \n What can I do for you? \n");
-        System.out.println(line);
-        System.out.println("Bye. Hope to see you again soon! \n");
-        System.out.println(line);
+        Tom tom = new Tom();
+        Chatbot chatbot = new Chatbot(tom);
+        chatbot.run();
+    }
+
+    public Event getInitialEvents() {
+        // Define the initial events for the chatbot
+        return new Greeting();
     }
 }
