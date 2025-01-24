@@ -13,10 +13,18 @@ public class List{
 
     public void mark(int x) {
         if (x >= this.list.size() || x < 0) {
+            System.out.println(Event.line);
             System.out.println("That item does not exist");
+            System.out.println(Event.line);
             return;
         }
         Pair item = this.list.get(x - 1);
+        if (item.isDone()) {
+            System.out.println(Event.line);
+            System.out.println("You have done it JERRYYYYYY!!!!");
+            System.out.println(Event.line);
+            return;
+        }
         item.mark(true);
         System.out.println(Event.line);
         System.out.println("Nice! I've marked this task as done:\n");
@@ -30,6 +38,12 @@ public class List{
             return;
         }
         Pair item = this.list.get(x - 1);
+        if (!item.isDone()) {
+            System.out.println(Event.line);
+            System.out.println("You have NOT done it JERRYYYYYY!!!!");
+            System.out.println(Event.line);
+            return;
+        }
         item.mark(false);
         System.out.println(Event.line);
         System.out.println("OK, I've marked this task as not done:\n");
