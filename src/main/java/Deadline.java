@@ -3,7 +3,7 @@
  * A Deadline includes a description of the task and a date/time by which it must be completed.
  */
 public class Deadline extends Pair{
-    protected String by;
+    private String by;
 
     /**
      * Constructs a Deadline instance with the specified details.

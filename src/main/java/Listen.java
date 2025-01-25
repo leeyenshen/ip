@@ -1,6 +1,8 @@
 import java.util.Scanner;
+
 /**
  * Listens for user commands and processes them to perform actions on the task list.
+ * Commands include adding, deleting, marking tasks, and exiting the application.
  */
 public class Listen extends Event{
     private static final Scanner scanner = new Scanner(System.in);
@@ -35,12 +37,12 @@ public class Listen extends Event{
             return new Exit();
         }
         try {
-            System.out.println(Event.line);
+            System.out.println(Event.LINE);
             processCommand(command);
-            System.out.println(Event.line);
+            System.out.println(Event.LINE);
         } catch (ChatbotException e) {
             System.out.println("OOPS!!! " + e.getMessage());
-            System.out.println(Event.line);
+            System.out.println(Event.LINE);
         }
         return this;
     }

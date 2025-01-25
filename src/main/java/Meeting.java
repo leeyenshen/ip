@@ -3,8 +3,8 @@
  * A Meeting includes a description, start time, and end time.
  */
 public class Meeting extends Pair{
-    protected String from;
-    protected String to;
+    private String from;
+    private String to;
 
     /**
      * Constructs a Meeting instance with the specified details.

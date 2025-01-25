@@ -9,7 +9,7 @@ public class List{
     /**
      * Constructs a List instance with a specified LinkedList of tasks.
      *
-     * @param list A LinkedList containing tasks to initialize the list.
+     * @param list A pre-existing LinkedList containing tasks to initialize the list.
      */
     public List(LinkedList<Pair> list) {
         this.list = list;

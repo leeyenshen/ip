@@ -19,7 +19,8 @@ public class Chatbot {
 
     /**
      * Starts the chatbot, processing and simulating events in the queue
-     * until there are no more events to process.
+     * until there are no more events to process. Each event may add
+     * subsequent events to the queue.
      */
     public void run() {
         Event event = this.events.poll();

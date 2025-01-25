@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 /**
  * Represents the greeting event that welcomes the user and starts the program.
  */
@@ -11,7 +9,7 @@ public class Greeting extends Event{
      */
     public Event simulate() {
         System.out.println("Hello! I'm Tom\nWhat can I do for you?");
-        System.out.println(Event.line);
+        System.out.println(Event.LINE);
         return new Listen(new List());
     }
 }

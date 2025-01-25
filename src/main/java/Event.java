@@ -1,17 +1,18 @@
 /**
  * Represents an abstract event.
- * Events are meant to be extended to provide specific implementations of simulate behavior.
+ * Subclasses should implement the `simulate` method to define
+ * specific event behaviors.
  */
 public abstract class Event{
     /**
      * A separator line for output formatting.
      */
-    public static String line = "========================================";
+    public static String LINE = "========================================";
 
     /**
-     * Simulates the behavior of the event and returns the next event.
+     * Simulates the exit event by printing a farewell message.
      *
-     * @return The next Event to be processed.
+     * @return Always returns null, indicating the end of the event sequence.
      */
     public abstract Event simulate();
 }
