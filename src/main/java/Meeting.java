@@ -40,6 +40,6 @@ public class Meeting extends Pair{
     @Override
     public String toFileFormat() {
         return "T | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
-                    + "|" + this.from + "|" + this.to;
+                    + " | " + this.from + " | " + this.to;
     }
 }
