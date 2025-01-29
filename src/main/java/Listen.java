@@ -91,11 +91,19 @@ public class Listen extends Event{
             break;
 
         case "mark":
-            this.list.mark(Integer.parseInt(parts[1]));
+            try {
+                this.list.mark(Integer.parseInt(parts[1]));
+            } catch (Exception e) {
+                System.out.println("Input a proper number");
+            }
             break;
 
         case "unmark":
-            this.list.unmark(Integer.parseInt(parts[1]));
+            try {
+                this.list.unmark(Integer.parseInt(parts[1]));
+            } catch (Exception e) {
+                System.out.println("Input a proper number");
+            }
             break;
 
         case "list":
@@ -103,7 +111,11 @@ public class Listen extends Event{
             break;
 
         case "delete":
-            this.list.delete(Integer.parseInt(parts[1]));
+            try {
+                this.list.delete(Integer.parseInt(parts[1]));
+            } catch (Exception e) {
+                System.out.println("Input a proper number");
+            }
             break;
 
         default:
