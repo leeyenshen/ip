@@ -34,7 +34,7 @@ public class Listen extends Event{
         }
         String bye = command.toLowerCase();
         if (bye.equals("bye")) {
-            return new Exit();
+            return new Exit(this.list);
         }
         try {
             System.out.println(Event.LINE);
@@ -59,55 +59,67 @@ public class Listen extends Event{
         String action = parts[0].toLowerCase();
 
         switch (action) {
-            case "todo":
-                if (parts.length < 2 || parts[1].trim().isEmpty()) {
-                    throw new ChatbotException("JERRYYYYY!!!! The description of a todo cannot be empty. Please provide a task description.");
-                }
-                this.list.add(new Todo(parts[1].trim(), false));
-                break;
+        case "todo":
+            if (parts.length < 2 || parts[1].trim().isEmpty()) {
+                throw new ChatbotException("JERRYYYYY!!!! The description of a todo cannot be empty. Please provide a task description.");
+            }
+            this.list.add(new Todo(parts[1].trim(), false));
+            break;
 
-            case "deadline":
-                if (!command.contains("/by")) {
-                    throw new ChatbotException("A deadline must include '/by' followed by the due date. Example: deadline Finish report /by tomorrow.");
-                }
-                String[] deadlineParts = parts[1].split("/by", 2);
-                if (deadlineParts.length < 2 || deadlineParts[0].trim().isEmpty() || deadlineParts[1].trim().isEmpty()) {
-                    throw new ChatbotException("The description or due date of a deadline cannot be empty.");
-                }
-                this.list.add(new Deadline(deadlineParts[0].trim(), false, deadlineParts[1].trim()));
-                break;
+        case "deadline":
+            if (!command.contains("/by")) {
+                throw new ChatbotException("A deadline must include '/by' followed by the due date. Example: deadline Finish report /by tomorrow.");
+            }
+            String[] deadlineParts = parts[1].split("/by", 2);
+            if (deadlineParts.length < 2 || deadlineParts[0].trim().isEmpty() || deadlineParts[1].trim().isEmpty()) {
+                throw new ChatbotException("The description or due date of a deadline cannot be empty.");
+            }
+            this.list.add(new Deadline(deadlineParts[0].trim(), false, deadlineParts[1].trim()));
+            break;
 
-            case "event":
-                if (!command.contains("/from") || !command.contains("/to")) {
-                    throw new ChatbotException("An event must include '/from' and '/to' with valid time periods. Example: event Team meeting /from 2pm /to 4pm.");
-                }
-                String[] eventParts = parts[1].split("/from", 2);
-                String[] timeParts = eventParts[1].split("/to", 2);
-                if (eventParts.length < 2 || timeParts.length < 2 ||
-                        eventParts[0].trim().isEmpty() || timeParts[0].trim().isEmpty() || timeParts[1].trim().isEmpty()) {
-                    throw new ChatbotException("The description or time periods of an event cannot be empty.");
-                }
-                this.list.add(new Meeting(eventParts[0].trim(), false, timeParts[0].trim(), timeParts[1].trim()));
-                break;
+        case "event":
+            if (!command.contains("/from") || !command.contains("/to")) {
+                throw new ChatbotException("An event must include '/from' and '/to' with valid time periods. Example: event Team meeting /from 2pm /to 4pm.");
+            }
+            String[] eventParts = parts[1].split("/from", 2);
+            String[] timeParts = eventParts[1].split("/to", 2);
+            if (eventParts.length < 2 || timeParts.length < 2 ||
+                    eventParts[0].trim().isEmpty() || timeParts[0].trim().isEmpty() || timeParts[1].trim().isEmpty()) {
+                throw new ChatbotException("The description or time periods of an event cannot be empty.");
+            }
+            this.list.add(new Meeting(eventParts[0].trim(), false, timeParts[0].trim(), timeParts[1].trim()));
+            break;
 
-            case "mark":
+        case "mark":
+            try {
                 this.list.mark(Integer.parseInt(parts[1]));
-                break;
+            } catch (Exception e) {
+                System.out.println("Input a proper number");
+            }
+            break;
 
-            case "unmark":
+        case "unmark":
+            try {
                 this.list.unmark(Integer.parseInt(parts[1]));
-                break;
+            } catch (Exception e) {
+                System.out.println("Input a proper number");
+            }
+            break;
 
-            case "list":
-                this.list.display();
-                break;
+        case "list":
+            this.list.display();
+            break;
 
-            case "delete":
+        case "delete":
+            try {
                 this.list.delete(Integer.parseInt(parts[1]));
-                break;
+            } catch (Exception e) {
+                System.out.println("Input a proper number");
+            }
+            break;
 
-            default:
-                throw new ChatbotException("I'm sorry, but I don't know what the command '" + command + "' means. Please try again.");
+        default:
+            throw new ChatbotException("I'm sorry, but I don't know what the command '" + command + "' means. Please try again.");
         }
     }
 

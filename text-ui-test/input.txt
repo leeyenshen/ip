@@ -3,7 +3,7 @@ todo read book
 todo write report
 todo call mom
 todo check emails
-todo
+todo  
 deadline finish homework /by tomorrow
 deadline submit assignment /by next Monday
 deadline prepare slides /by next Friday
@@ -49,4 +49,3 @@ delete 5
 mark 100
 delete 2
 bye
-

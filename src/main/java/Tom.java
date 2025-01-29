@@ -1,8 +1,16 @@
+import java.util.LinkedList;
+
 /**
  * Represents the main entry point for the chatbot application.
  * This class initializes the chatbot with its initial events and starts it.
  */
 public class Tom {
+    private List list;
+
+    public Tom(List list){
+        this.list = list;
+    }
+
     /**
      * The main method that launches the chatbot application.
      *
@@ -17,7 +25,8 @@ public class Tom {
         String line = "========================================";
         //System.out.println(logo);
         System.out.println(line);
-        Tom tom = new Tom();
+        List tasks = ChatbotDataHandler.getTasks();
+        Tom tom = new Tom(tasks);
         Chatbot chatbot = new Chatbot(tom);
         chatbot.run();
     }
@@ -30,6 +39,6 @@ public class Tom {
 
     public Event getInitialEvents() {
         // Define the initial events for the chatbot
-        return new Greeting();
+        return new Greeting(this.list);
     }
 }
