@@ -42,4 +42,8 @@ public class Pair {
     public String getItem() {
         return this.item;
     }
+
+    public String toFileFormat() {
+        return "Type | Done | Description | Time (If applicable)";
+    }
 }

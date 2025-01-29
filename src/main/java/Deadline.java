@@ -34,4 +34,10 @@ public class Deadline extends Pair{
         temp += this.getItem() + " (by: " + this.by + ")";
         return temp;
     }
+
+    @Override
+    public String toFileFormat() {
+        return "D | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
+                    + "|" + this.by;
+    }
 }

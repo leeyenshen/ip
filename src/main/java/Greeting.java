@@ -2,6 +2,12 @@
  * Represents the greeting event that welcomes the user and starts the program.
  */
 public class Greeting extends Event{
+    private List list;
+
+    public Greeting(List list) {
+        this.list = list;
+    }
+
     /**
      * Simulates the greeting event by printing a welcome message and initializing the task list.
      *
@@ -10,6 +16,6 @@ public class Greeting extends Event{
     public Event simulate() {
         System.out.println("Hello! I'm Tom\nWhat can I do for you?");
         System.out.println(Event.LINE);
-        return new Listen(new List());
+        return new Listen(this.list);
     }
 }

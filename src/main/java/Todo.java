@@ -28,4 +28,9 @@ public class Todo extends Pair{
         temp += this.getItem();
         return temp;
     }
+
+    @Override
+    public String toFileFormat() {
+        return "T | " + (this.isDone() ? "1" : "0") + " | " + this.getItem();
+    }
 }
