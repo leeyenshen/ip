@@ -25,6 +25,7 @@ event community gathering /from 3pm /to
 # Marking and Unmarking (Valid and Invalid)
 mark 1
 mark 5
+<<<<<<< HEAD
 mark 10
 mark 100
 unmark 1
@@ -59,3 +60,9 @@ delete 3
 delete 4
 list
 bye
+=======
+delete 5
+mark 100
+delete 2
+bye
+>>>>>>> master
