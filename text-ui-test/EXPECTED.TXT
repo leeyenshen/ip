@@ -4,19 +4,49 @@ What can I do for you?
 ========================================
 ========================================
 Got it. I've added this task:
- [T][ ] read book
+ [T][ ] Tasks
 Now you have 1 tasks in the list
 ========================================
 ========================================
-OOPS!!! JERRYYYYY!!!! The description of a todo cannot be empty. Please provide a task description.
+Got it. I've added this task:
+ [T][ ] read book
+Now you have 2 tasks in the list
+========================================
+========================================
+Got it. I've added this task:
+ [T][ ] write report
+Now you have 3 tasks in the list
+========================================
+========================================
+Got it. I've added this task:
+ [T][ ] call mom
+Now you have 4 tasks in the list
+========================================
+========================================
+Got it. I've added this task:
+ [T][ ] check emails
+Now you have 5 tasks in the list
 ========================================
 ========================================
 OOPS!!! JERRYYYYY!!!! The description of a todo cannot be empty. Please provide a task description.
 ========================================
 ========================================
 Got it. I've added this task:
- [D][ ] return book (by: June 6th)
-Now you have 2 tasks in the list
+ [D][ ] finish homework (by: tomorrow)
+Now you have 6 tasks in the list
+========================================
+========================================
+Got it. I've added this task:
+ [D][ ] submit assignment (by: next Monday)
+Now you have 7 tasks in the list
+========================================
+========================================
+Got it. I've added this task:
+ [D][ ] prepare slides (by: next Friday)
+Now you have 8 tasks in the list
+========================================
+========================================
+OOPS!!! The description or due date of a deadline cannot be empty.
 ========================================
 ========================================
 OOPS!!! The description or due date of a deadline cannot be empty.
@@ -26,8 +56,23 @@ OOPS!!! A deadline must include '/by' followed by the due date. Example: deadlin
 ========================================
 ========================================
 Got it. I've added this task:
- [E][ ] project meeting (from: Aug 6th 2pm to: 4pm)
-Now you have 3 tasks in the list
+ [E][ ] team meeting (from: Monday 2pm to: 3pm)
+Now you have 9 tasks in the list
+========================================
+========================================
+Got it. I've added this task:
+ [E][ ] birthday party (from: Saturday 6pm to: 11pm)
+Now you have 10 tasks in the list
+========================================
+========================================
+Got it. I've added this task:
+ [E][ ] conference call (from: Tuesday 10am to: 11am)
+Now you have 11 tasks in the list
+========================================
+========================================
+Got it. I've added this task:
+ [E][ ] lunch (from: 12pm to: 1pm)
+Now you have 12 tasks in the list
 ========================================
 ========================================
 OOPS!!! The description or time periods of an event cannot be empty.
@@ -40,65 +85,95 @@ OOPS!!! The description or time periods of an event cannot be empty.
 ========================================
 ========================================
 Nice! I've marked this task as done:
- [T][X] read book
+ [T][X] Tasks
 ========================================
 ========================================
 Nice! I've marked this task as done:
- [E][X] project meeting (from: Aug 6th 2pm to: 4pm)
+ [T][X] check emails
 ========================================
 ========================================
-OK, I've marked this task as not done:
- [T][ ] read book
+Nice! I've marked this task as done:
+ [E][X] birthday party (from: Saturday 6pm to: 11pm)
 ========================================
 ========================================
 OOPS!!! This item does not exist JERRYYYYYY!!!!
 ========================================
 ========================================
-1.[T][ ] read book
-2.[D][ ] return book (by: June 6th)
-3.[E][X] project meeting (from: Aug 6th 2pm to: 4pm)
+OK, I've marked this task as not done:
+ [T][ ] Tasks
+========================================
+========================================
+OOPS!!! You have NOT done it JERRYYYYYY!!!!
+========================================
+========================================
+OOPS!!! This item does not exist JERRYYYYYY!!!!
+========================================
+========================================
+OOPS!!! This item does not exist JERRYYYYYY!!!!
+========================================
+========================================
+1.[T][ ] Tasks
+2.[T][ ] read book
+3.[T][ ] write report
+4.[T][ ] call mom
+5.[T][X] check emails
+6.[D][ ] finish homework (by: tomorrow)
+7.[D][ ] submit assignment (by: next Monday)
+8.[D][ ] prepare slides (by: next Friday)
+9.[E][ ] team meeting (from: Monday 2pm to: 3pm)
+10.[E][X] birthday party (from: Saturday 6pm to: 11pm)
+11.[E][ ] conference call (from: Tuesday 10am to: 11am)
+12.[E][ ] lunch (from: 12pm to: 1pm)
 ========================================
 ========================================
 Noted. I've removed this task:
-  [D][ ] return book (by: June 6th)
-Now you have 2 tasks in the list.
+  [T][ ] read book
+Now you have 11 tasks in the list.
+========================================
+========================================
+Noted. I've removed this task:
+  [T][ ] call mom
+Now you have 10 tasks in the list.
+========================================
+========================================
+Noted. I've removed this task:
+  [E][ ] lunch (from: 12pm to: 1pm)
+Now you have 9 tasks in the list.
+========================================
+========================================
+OOPS!!! This item does not exist JERRYYYYYY!!!!
 ========================================
 ========================================
 OOPS!!! This item does not exist JERRYYYYYY!!!!
 ========================================
 ========================================
 Got it. I've added this task:
- [T][ ] join sports club
-Now you have 3 tasks in the list
+ [T][ ] shopping
+Now you have 10 tasks in the list
 ========================================
 ========================================
-1.[T][ ] read book
-2.[E][X] project meeting (from: Aug 6th 2pm to: 4pm)
-3.[T][ ] join sports club
+Got it. I've added this task:
+ [D][ ] pay bills (by: Friday)
+Now you have 11 tasks in the list
 ========================================
 ========================================
-OOPS!!! You have done it JERRYYYYYY!!!!
+Got it. I've added this task:
+ [E][ ] workout session (from: 6am to: 7am)
+Now you have 12 tasks in the list
 ========================================
 ========================================
-OK, I've marked this task as not done:
- [E][ ] project meeting (from: Aug 6th 2pm to: 4pm)
-========================================
-========================================
-Noted. I've removed this task:
-  [E][ ] project meeting (from: Aug 6th 2pm to: 4pm)
-Now you have 2 tasks in the list.
-========================================
-========================================
-OOPS!!! This item does not exist JERRYYYYYY!!!!
-========================================
-========================================
-OOPS!!! This item does not exist JERRYYYYYY!!!!
-========================================
-========================================
-OOPS!!! This item does not exist JERRYYYYYY!!!!
-========================================
-========================================
-OOPS!!! This item does not exist JERRYYYYYY!!!!
+1.[T][ ] Tasks
+2.[T][ ] write report
+3.[T][X] check emails
+4.[D][ ] finish homework (by: tomorrow)
+5.[D][ ] submit assignment (by: next Monday)
+6.[D][ ] prepare slides (by: next Friday)
+7.[E][ ] team meeting (from: Monday 2pm to: 3pm)
+8.[E][X] birthday party (from: Saturday 6pm to: 11pm)
+9.[E][ ] conference call (from: Tuesday 10am to: 11am)
+10.[T][ ] shopping
+11.[D][ ] pay bills (by: Friday)
+12.[E][ ] workout session (from: 6am to: 7am)
 ========================================
 Bye. Hope to see you again soon!
 ========================================
