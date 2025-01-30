@@ -48,4 +48,5 @@ bye
 delete 5
 mark 100
 delete 2
+deadline say hello /from 2019-02-12 2350
 bye
