@@ -11,8 +11,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.io.FileWriter;
 
+/**
+ * Handles the loading and saving of chatbot task data from a file.
+ */
 public class ChatbotDataHandler {
     private String FILE_PATH;
+
 
     public ChatbotDataHandler(String filePath) {
         this.FILE_PATH = filePath;

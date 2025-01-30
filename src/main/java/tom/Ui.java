@@ -2,6 +2,9 @@ package tom;
 
 import java.util.Scanner;
 
+/**
+ * Handles user interactions by providing input and output functionalities.
+ */
 public class Ui {
     private static final Scanner scanner = new Scanner(System.in);
     public static String LINE = "========================================";
