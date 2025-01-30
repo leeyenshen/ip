@@ -45,6 +45,11 @@ public class Pair {
         return this.item;
     }
 
+    /**
+     * Returns a file-friendly string representation of the {@code Pair} task.
+     *
+     * @return A formatted string suitable for file storage.
+     */
     public String toFileFormat() {
         return "Type | Done | Description | Time (If applicable)";
     }

@@ -5,7 +5,7 @@ package tom;
  */
 public class Todo extends Pair{
     /**
-     * Constructs a tom.Todo instance with the specified description and completion status.
+     * Constructs a {@code Todo} instance with the specified description and completion status.
      *
      * @param item The description of the to-do task.
      * @param done Whether the task is completed.

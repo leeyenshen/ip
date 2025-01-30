@@ -32,11 +32,10 @@ public class Tom {
     }
 
     /**
-     * Retrieves the initial events to be processed by the chatbot.
+     * Retrieves the initial event to be processed by the chatbot.
      *
-     * @return The first event for the chatbot, which is a tom.Greeting event.
+     * @return The first event for the chatbot, which is a {@code Greeting} event.
      */
-
     public Event getInitialEvents() {
         return new Greeting(this.list, this.chatbotDataHandler);
     }

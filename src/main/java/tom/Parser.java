@@ -32,9 +32,11 @@ public class Parser {
 
     /**
      * Processes the user's command and performs the corresponding action.
-     * Throws a {@code tom.ChatbotException} with specific error messages for invalid commands.
+     * Throws a {@code ChatbotException} with specific error messages for invalid commands.
      *
      * @param command The user's command input.
+     * @param list The task list to be modified.
+     * @return A message confirming the action taken.
      * @throws ChatbotException If the command is invalid or incomplete.
      */
     private String processCommand(String command, List list) throws ChatbotException {
