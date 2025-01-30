@@ -28,14 +28,14 @@ test {
 }
 
 application {
-    mainClass.set("tom.Tom")
+    mainClass.set("tom.Tom")  // Ensure this matches your package structure
 }
 
 shadowJar {
-    archiveBaseName = "duke"
+    archiveBaseName = "Tom"  // Rename JAR file to match new project name
     archiveClassifier = null
 }
 
-run{
+run {
     standardInput = System.in
 }
