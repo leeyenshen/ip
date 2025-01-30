@@ -27,8 +27,8 @@ public class Chatbot {
     public void run() {
         Event event = this.events.poll();
         while (event != null) {
-            Event newEvents = event.simulate();
-            this.events.add(newEvents);
+            Event newEvent = event.simulate();
+            this.events.add(newEvent);
             event = this.events.poll();
         }
     }

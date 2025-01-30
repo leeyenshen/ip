@@ -9,24 +9,24 @@ import java.time.format.DateTimeFormatter;
  * A tom.Deadline includes a description of the task and a date/time by which it must be completed.
  */
 public class Deadline extends Pair{
-    private LocalDateTime timeby;
-    private LocalDate dateby;
+    private LocalDateTime timeBy;
+    private LocalDate dateBy;
 
-    public Deadline(String item, boolean done, LocalDate dateby){
+    public Deadline(String item, boolean done, LocalDate dateBy){
         super(item, done);
-        this.dateby = dateby;
+        this.dateBy = dateBy;
     }
     /**
      * Constructs a tom.Deadline instance with the specified details.
      *
      * @param item The description of the deadline task.
      * @param done Whether the task has been completed.
-     * @param timeby The deadline for the task.
+     * @param timeBy The deadline for the task.
      */
 
-    public Deadline(String item, boolean done, LocalDateTime timeby){
+    public Deadline(String item, boolean done, LocalDateTime timeBy){
         super(item, done);
-        this.timeby = timeby;
+        this.timeBy = timeBy;
     }
 
     /**
@@ -42,23 +42,23 @@ public class Deadline extends Pair{
         } else {
             temp += "[ ] ";
         }
-        if (timeby == null) {
-            temp += this.getItem() + " (by: " + this.dateby.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
+        if (timeBy == null) {
+            temp += this.getItem() + " (by: " + this.dateBy.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
         } else {
             temp += this.getItem() + " (by: " +
-                        this.timeby.format(DateTimeFormatter.ofPattern("MMM d yyyy h:mm a")) + ")";
+                        this.timeBy.format(DateTimeFormatter.ofPattern("MMM d yyyy h:mm a")) + ")";
         }
         return temp;
     }
 
     @Override
     public String toFileFormat() {
-        if (timeby == null) {
+        if (timeBy == null) {
             return "D | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
-                    + " | " + this.dateby;
+                    + " | " + this.dateBy;
         } else {
             return "D | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
-                    + " | " + this.timeby;
+                    + " | " + this.timeBy;
         }
     }
 }

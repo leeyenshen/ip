@@ -1,7 +1,7 @@
 package tom;
 
 /**
- * Represents the greeting event that welcomes the user and starts the program.
+ * Represents the greeting event that welcomes the user and transitioning to {@code Listen}.
  */
 public class Greeting extends Event{
     private List list;
@@ -17,6 +17,7 @@ public class Greeting extends Event{
      *
      * @return A new tom.Listen event to handle user commands.
      */
+    @Override
     public Event simulate() {
         new Ui().greeting();
         return new Listen(this.list ,this.chatbotDataHandler);

@@ -14,7 +14,7 @@ public abstract class Event{
     public static String LINE = "========================================";
 
     /**
-     * Simulates the exit event by printing a farewell message.
+     * Simulates the event.
      *
      * @return Always returns null, indicating the end of the event sequence.
      */

@@ -15,6 +15,7 @@ public class Exit extends Event{
      *
      * @return Always returns null to indicate the end of events.
      */
+    @Override
     public Event simulate() {
         this.chatbotDataHandler.saveTasks(this.list);
         new Ui().exit();

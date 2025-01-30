@@ -62,10 +62,10 @@ public class Meeting extends Pair{
     @Override
     public String toFileFormat() {
         if (timeFrom == null) {
-            return "T | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
+            return "E | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
                     + " | " + this.dateFrom + " | " + this.dateTo;
         } else {
-            return "T | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
+            return "E | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
                     + " | " + this.timeFrom + " | " + this.timeTo;
         }
     }
