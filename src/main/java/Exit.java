@@ -3,9 +3,10 @@
  */
 public class Exit extends Event{
     private List list;
-
-    public Exit(List list) {
+    private ChatbotDataHandler chatbotDataHandler;
+    public Exit(List list, ChatbotDataHandler chatbotDataHandler) {
         this.list = list;
+        this.chatbotDataHandler = chatbotDataHandler;
     }
     /**
      * Simulates the exit event by printing a farewell message.
@@ -13,9 +14,8 @@ public class Exit extends Event{
      * @return Always returns null to indicate the end of events.
      */
     public Event simulate() {
-        ChatbotDataHandler.saveTasks(this.list);
-        System.out.println("Bye. Hope to see you again soon!");
-        System.out.print(Event.LINE);
+        this.chatbotDataHandler.saveTasks(this.list);
+        new Ui().exit();
         return null;
     }
 }

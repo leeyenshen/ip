@@ -1,14 +1,22 @@
-import java.util.LinkedList;
-
 /**
  * Represents the main entry point for the chatbot application.
  * This class initializes the chatbot with its initial events and starts it.
  */
 public class Tom {
     private List list;
+    private ChatbotDataHandler chatbotDataHandler;
+    private Ui ui;
 
-    public Tom(List list){
-        this.list = list;
+    public Tom(String filePath){
+        this.ui = new Ui();
+        ui.startUp();
+        this.chatbotDataHandler = new ChatbotDataHandler(filePath);
+        try {
+            this.list = chatbotDataHandler.getTasks();
+        } catch (Exception e){
+            ui.showLoadingError();
+            this.list = new List();
+        }
     }
 
     /**
@@ -17,18 +25,8 @@ public class Tom {
      * @param args Command-line arguments (not used).
      */
     public static void main(String[] args) {
-        String logo = "  _______   ____    __  __ \n"
-                + " |__   __| /  _ \\  |  \\/  |\n"
-                + "    | |    | | | | | |\\/| |\n"
-                + "    | |    | |_| | | |  | |\n"
-                + "    |_|    \\____/  |_|  |_|\n";
-        String line = "========================================";
-        //System.out.println(logo);
-        System.out.println(line);
-        List tasks = ChatbotDataHandler.getTasks();
-        Tom tom = new Tom(tasks);
-        Chatbot chatbot = new Chatbot(tom);
-        chatbot.run();
+        Tom tom = new Tom("data/Tom.txt");
+        new Chatbot(tom).run();
     }
 
     /**
@@ -38,7 +36,6 @@ public class Tom {
      */
 
     public Event getInitialEvents() {
-        // Define the initial events for the chatbot
-        return new Greeting(this.list);
+        return new Greeting(this.list, this.chatbotDataHandler);
     }
 }

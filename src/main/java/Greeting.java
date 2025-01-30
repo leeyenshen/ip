@@ -3,9 +3,11 @@
  */
 public class Greeting extends Event{
     private List list;
+    private ChatbotDataHandler chatbotDataHandler;
 
-    public Greeting(List list) {
+    public Greeting(List list, ChatbotDataHandler chatbotDataHandler) {
         this.list = list;
+        this.chatbotDataHandler = chatbotDataHandler;
     }
 
     /**
@@ -14,8 +16,7 @@ public class Greeting extends Event{
      * @return A new Listen event to handle user commands.
      */
     public Event simulate() {
-        System.out.println("Hello! I'm Tom\nWhat can I do for you?");
-        System.out.println(Event.LINE);
-        return new Listen(this.list);
+        new Ui().greeting();
+        return new Listen(this.list ,this.chatbotDataHandler);
     }
 }

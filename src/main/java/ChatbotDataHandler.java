@@ -10,29 +10,25 @@ import java.util.LinkedList;
 import java.io.FileWriter;
 
 public class ChatbotDataHandler {
+    private String FILE_PATH;
 
-    private static final String FILE_PATH = "data" + File.separator + "Tom.txt";
-
-    public static List getTasks() {
-        File dataFile = new File(FILE_PATH);
-        try {
-            if (!dataFile.exists()) {
-                if (dataFile.getParentFile() != null && dataFile.getParentFile().mkdirs()) {
-                    System.out.println("Data directory created: " + dataFile.getParentFile().getAbsolutePath());
-                }
-                if (dataFile.createNewFile()) {
-                    System.out.println("Chatbot data file created: " + dataFile.getAbsolutePath());
-                } else {
-                    System.out.println("Failed to create chatbot data file.");
-                }
-            } else {
-                System.out.println("Initialising data from memory");
+    public ChatbotDataHandler(String filePath) {
+        this.FILE_PATH = filePath;
+    }
+    public List getTasks() throws ChatbotException, IOException {
+        File dataFile = new File(this.FILE_PATH);
+        if (!dataFile.exists()) {
+            if (dataFile.getParentFile() != null && dataFile.getParentFile().mkdirs()) {
+                System.out.println("Data directory created: " + dataFile.getParentFile().getAbsolutePath());
             }
-        } catch (IOException e) {
-            System.err.println("Error while accessing chatbot data file: " + e.getMessage());
-            e.printStackTrace();
+            if (dataFile.createNewFile()) {
+                System.out.println("Chatbot data file created: " + dataFile.getAbsolutePath());
+            } else {
+                System.out.println("Failed to create chatbot data file.");
+            }
+        } else {
+            System.out.println("Initialising data from memory");
         }
-
         return readTasksFromFile(dataFile);
     }
 
@@ -44,7 +40,7 @@ public class ChatbotDataHandler {
      */
     private static List readTasksFromFile(File file) {
         LinkedList<Pair> tasks = new LinkedList<>();
-
+        Ui ui = new Ui();
         if (!file.exists()) {
             System.out.println("No existing task file found. A new file will be created.");
             return new List(tasks);
@@ -59,19 +55,13 @@ public class ChatbotDataHandler {
                 }
             }
             if (tasks.isEmpty()) {
-                System.out.println("JERRYYYYYY!!!! Your list is empty");
-                System.out.println(Event.LINE);
+                ui.listEmpty();
             } else {
-                System.out.println("JERRYYYYYY!!!! Your list is not empty");
-                List Result = new List(tasks);
-                Result.display();
-                System.out.println(Event.LINE);
+                ui.listNotEmpty(new List(tasks));
             }
         } catch (IOException e) {
-            System.err.println("Error reading tasks from file: " + e.getMessage());
-            e.printStackTrace();
+            ui.showLoadingError();
         }
-
         return new List(tasks);
     }
 
@@ -143,8 +133,8 @@ public class ChatbotDataHandler {
      *
      * @param tasks The list of tasks to save.
      */
-    public static void saveTasks(List tasks) {
-        File dataFile = new File(FILE_PATH);
+    public void saveTasks(List tasks) {
+        File dataFile = new File(this.FILE_PATH);
         try {
             if (!dataFile.exists()) {
                 if (dataFile.getParentFile() != null && dataFile.getParentFile().mkdirs()) {
