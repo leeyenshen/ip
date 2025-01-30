@@ -27,7 +27,7 @@ public class List{
      *
      * @param x The index of the task to mark as done (1-based index).
      */
-    public void mark(int x) throws ChatbotException {
+    public String mark(int x) throws ChatbotException {
         if (x > this.list.size() || x <= 0) {
             throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
@@ -36,8 +36,7 @@ public class List{
             throw new ChatbotException("You have done it JERRYYYYYY!!!!");
         }
         item.mark(true);
-        System.out.println("Nice! I've marked this task as done:");
-        System.out.println(" " + item);
+        return "Nice! I've marked this task as done: " + item;
     }
 
     /**
@@ -45,7 +44,7 @@ public class List{
      *
      * @param x The index of the task to mark as not done (1-based index).
      */
-    public void unmark(int x) throws ChatbotException{
+    public String unmark(int x) throws ChatbotException{
         if (x >= this.list.size() || x <= 0) {
             throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
@@ -54,8 +53,7 @@ public class List{
             throw new ChatbotException("You have NOT done it JERRYYYYYY!!!!");
         }
         item.mark(false);
-        System.out.println("OK, I've marked this task as not done:");
-        System.out.println(" " + item);
+        return "OK, I've marked this task as not done: " + item;
     }
 
     /**
@@ -64,14 +62,15 @@ public class List{
      * @param x The index of the task to delete (1-based index).
      * @throws ChatbotException If the index is invalid.
      */
-    public void delete(int x) throws ChatbotException {
+    public String delete(int x) throws ChatbotException {
+        String output = "";
         if (x <= 0 || x > this.list.size()) {
             throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
         Pair removedTask = this.list.remove(x - 1);
-        System.out.println("Noted. I've removed this task:");
-        System.out.println("  " + removedTask.toString());
-        System.out.println("Now you have " + this.list.size() + " tasks in the list.");
+        output += "Noted. I've removed this task: " + removedTask.toString() +
+                "Now you have " + this.list.size() + " tasks in the list.";
+        return output;
     }
 
     /**
@@ -79,22 +78,22 @@ public class List{
      *
      * @param item The task to be added.
      */
-    public void add(Pair item){
-        System.out.println("Got it. I've added this task:");
-        System.out.println(" " + item.toString());
+    public String add(Pair item){
         this.list.add(item);
-        System.out.println("Now you have " + this.list.size() + " tasks in the list");
+        return "Got it. I've added this task: " + item.toString()
+                    + "\nNow you have " + this.list.size() + " tasks in the list";
     }
 
     /**
      * Displays all tasks in the list with their status and details.
      */
-    public void display() {
+    public String display() {
+        String output = "";
         for (int i = 0; i < list.size(); i++) {
             Pair temp = list.get(i);
-            System.out.print((i + 1) + ".");
-            System.out.println(temp.toString());
+            output += ((i + 1) + "." + temp.toString() + "\n");
         }
+        return output;
     }
 
     /**

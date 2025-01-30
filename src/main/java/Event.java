@@ -4,6 +4,8 @@
  * specific event behaviors.
  */
 public abstract class Event{
+    private List list;
+    private ChatbotDataHandler chatbotDataHandler;
     /**
      * A separator line for output formatting.
      */
