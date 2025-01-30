@@ -65,14 +65,13 @@ public class List{
      * @throws ChatbotException If the index is invalid.
      */
     public String delete(int x) throws ChatbotException {
-        String output = "";
         if (x <= 0 || x > this.list.size()) {
             throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
         Pair removedTask = this.list.remove(x - 1);
-        output += "Noted. I've removed this task: " + removedTask.toString() +
+        return "Noted. I've removed this task: " + removedTask.toString() +
                 "Now you have " + this.list.size() + " tasks in the list.";
-        return output;
+
     }
 
     /**
@@ -90,12 +89,12 @@ public class List{
      * Displays all tasks in the list with their status and details.
      */
     public String display() {
-        String output = "";
+        String output = "Your List\n";
         for (int i = 0; i < list.size(); i++) {
             Pair temp = list.get(i);
             output += ((i + 1) + "." + temp.toString() + "\n");
         }
-        return output;
+        return output + "End of List";
     }
 
     /**
