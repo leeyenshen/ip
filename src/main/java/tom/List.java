@@ -105,4 +105,25 @@ public class List{
     public LinkedList<Pair> getList() {
         return this.list;
     }
+
+    /**
+     * Finds and returns a list of tasks that contain the specified keyword in their description.
+     *
+     * @param keyword The keyword to search for.
+     * @return A formatted string containing matching tasks or a message if no matches are found.
+     */
+    public String find(String keyword) {
+        StringBuilder result = new StringBuilder("Here are the matching tasks in your list:\n");
+        boolean found = false;
+
+        for (int i = 0; i < list.size(); i++) {
+            Pair task = list.get(i);
+            if (task.getItem().toLowerCase().contains(keyword.toLowerCase())) {
+                result.append(i + 1).append(".").append(task).append("\n");
+                found = true;
+            }
+        }
+
+        return found ? result.toString() : "No matching tasks found.";
+    }
 }

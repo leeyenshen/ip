@@ -42,98 +42,104 @@ public class Parser {
         String action = parts[0].toLowerCase();
 
         switch (action) {
-            case "todo":
-                if (parts.length < 2 || parts[1].trim().isEmpty()) {
-                    throw new ChatbotException("JERRYYYYY!!!! The description of a todo cannot be empty. " +
-                                "Please provide a task description.");
-                }
-                return list.add(new Todo(parts[1].trim(), false));
+        case "todo":
+            if (parts.length < 2 || parts[1].trim().isEmpty()) {
+                throw new ChatbotException("JERRYYYYY!!!! The description of a todo cannot be empty. " +
+                        "Please provide a task description.");
+            }
+            return list.add(new Todo(parts[1].trim(), false));
 
-            case "deadline":
-                if (!command.contains("/by")) {
-                    throw new ChatbotException("A deadline must include '/by' followed by the due date. " +
-                                "Example: deadline Finish report /by tomorrow.");
+        case "deadline":
+            if (!command.contains("/by")) {
+                throw new ChatbotException("A deadline must include '/by' followed by the due date. " +
+                        "Example: deadline Finish report /by tomorrow.");
+            }
+            String[] deadlineParts = parts[1].split("/by", 2);
+            if (deadlineParts.length < 2 || deadlineParts[0].trim().isEmpty()
+                    || deadlineParts[1].trim().isEmpty()) {
+                throw new ChatbotException("The description or due date of a deadline cannot be empty.");
+            }
+            String inputDate = deadlineParts[1].trim();
+            try {
+                if (inputDate.contains(" ")) {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+                    LocalDateTime date = LocalDateTime.parse(inputDate, formatter);
+                    return list.add(new Deadline(deadlineParts[0].trim(), false, date));
+                } else {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate date = LocalDate.parse(inputDate, formatter);
+                    return list.add(new Deadline(deadlineParts[0].trim(), false, date));
                 }
-                String[] deadlineParts = parts[1].split("/by", 2);
-                if (deadlineParts.length < 2 || deadlineParts[0].trim().isEmpty()
-                            || deadlineParts[1].trim().isEmpty()) {
-                    throw new ChatbotException("The description or due date of a deadline cannot be empty.");
-                }
-                String inputDate = deadlineParts[1].trim();
-                try {
-                    if (inputDate.contains(" ")) {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-                        LocalDateTime date = LocalDateTime.parse(inputDate, formatter);
-                        return list.add(new Deadline(deadlineParts[0].trim(), false, date));
-                    } else {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                        LocalDate date = LocalDate.parse(inputDate, formatter);
-                        return list.add(new Deadline(deadlineParts[0].trim(), false, date));
-                    }
-                }
-                catch (DateTimeParseException e) {
-                    throw new ChatbotException("Invalid date format: " + inputDate +
-                            "\n Use yyyy-mm-dd or yyyy-mm-dd HHmm");
+            } catch (DateTimeParseException e) {
+                throw new ChatbotException("Invalid date format: " + inputDate +
+                        "\n Use yyyy-mm-dd or yyyy-mm-dd HHmm");
 
-                }
+            }
 
-            case "event":
-                if (!command.contains("/from") || !command.contains("/to")) {
-                    throw new ChatbotException("An event must include '/from' and '/to' with valid time periods. " +
-                            "Example: event Team meeting /from 2pm /to 4pm.");
+        case "event":
+            if (!command.contains("/from") || !command.contains("/to")) {
+                throw new ChatbotException("An event must include '/from' and '/to' with valid time periods. " +
+                        "Example: event Team meeting /from 2pm /to 4pm.");
+            }
+            String[] eventParts = parts[1].split("/from", 2);
+            String[] timeParts = eventParts[1].split("/to", 2);
+            if (eventParts.length < 2 || timeParts.length < 2 ||
+                    eventParts[0].trim().isEmpty() || timeParts[0].trim().isEmpty()
+                    || timeParts[1].trim().isEmpty()) {
+                throw new ChatbotException("The description or time periods of an event cannot be empty.");
+            }
+            String from = timeParts[0].trim();
+            String to = timeParts[1].trim();
+            try {
+                if (from.contains(" ")) {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+                    LocalDateTime fromDate = LocalDateTime.parse(from, formatter);
+                    LocalDateTime toDate = LocalDateTime.parse(to, formatter);
+                    return list.add(new Meeting(eventParts[0].trim(), false, fromDate, toDate));
+                } else {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate fromDate = LocalDate.parse(from, formatter);
+                    LocalDate toDate = LocalDate.parse(to, formatter);
+                    return list.add(new Meeting(eventParts[0].trim(), false, fromDate, toDate));
                 }
-                String[] eventParts = parts[1].split("/from", 2);
-                String[] timeParts = eventParts[1].split("/to", 2);
-                if (eventParts.length < 2 || timeParts.length < 2 ||
-                        eventParts[0].trim().isEmpty() || timeParts[0].trim().isEmpty()
-                            || timeParts[1].trim().isEmpty()) {
-                    throw new ChatbotException("The description or time periods of an event cannot be empty.");
-                }
-                String from = timeParts[0].trim();
-                String to = timeParts[1].trim();
-                try {
-                    if (from.contains(" ")) {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-                        LocalDateTime fromDate = LocalDateTime.parse(from, formatter);
-                        LocalDateTime toDate = LocalDateTime.parse(to, formatter);
-                        return list.add(new Meeting(eventParts[0].trim(), false, fromDate, toDate));
-                    } else {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                        LocalDate fromDate = LocalDate.parse(from, formatter);
-                        LocalDate toDate = LocalDate.parse(to, formatter);
-                        return list.add(new Meeting(eventParts[0].trim(), false, fromDate, toDate));
-                    }
-                }
-                catch (DateTimeParseException e) {
-                    throw new ChatbotException("Invalid date format: " + from + to +
-                                "\nUse yyyy-mm-dd or yyyy-mm-dd HHmm for both");
-                }
+            } catch (DateTimeParseException e) {
+                throw new ChatbotException("Invalid date format: " + from + to +
+                        "\nUse yyyy-mm-dd or yyyy-mm-dd HHmm for both");
+            }
 
-            case "mark":
-                try {
-                    return list.mark(Integer.parseInt(parts[1]));
-                } catch (Exception e) {
-                    throw new ChatbotException("Input a proper number");
-                }
+        case "mark":
+            try {
+                return list.mark(Integer.parseInt(parts[1]));
+            } catch (Exception e) {
+                throw new ChatbotException("Input a proper number");
+            }
 
-            case "unmark":
-                try {
-                    return list.unmark(Integer.parseInt(parts[1]));
-                } catch (Exception e) {
-                    throw new ChatbotException("Input a proper number");
-                }
+        case "unmark":
+            try {
+                return list.unmark(Integer.parseInt(parts[1]));
+            } catch (Exception e) {
+                throw new ChatbotException("Input a proper number");
+            }
 
-            case "list":
-                return list.display();
+        case "list":
+            return list.display();
 
-            case "delete":
-                try {
-                    return list.delete(Integer.parseInt(parts[1]));
-                } catch (Exception e) {
-                    throw new ChatbotException("Input a proper number");
-                }
+        case "delete":
+            try {
+                return list.delete(Integer.parseInt(parts[1]));
+            } catch (Exception e) {
+                throw new ChatbotException("Input a proper number");
+            }
 
-            default:
+        case "find":
+            if (parts.length < 2 || parts[1].trim().isEmpty()) {
+                throw new ChatbotException("Please provide a keyword to search for.");
+            }
+            String keyword = parts[1].trim();
+            return list.find(keyword);
+
+
+        default:
                 throw new ChatbotException("I'm sorry, but I don't know what the command '" + command.trim() + "' means. Please try again.");
         }
     }

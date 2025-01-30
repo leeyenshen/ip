@@ -36,7 +36,6 @@ public class Tom {
      *
      * @return The first event for the chatbot, which is a tom.Greeting event.
      */
-
     public Event getInitialEvents() {
         return new Greeting(this.list, this.chatbotDataHandler);
     }
