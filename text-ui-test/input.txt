@@ -4,7 +4,7 @@ todo write report
 todo call mom
 todo check emails
 todo  
-deadline finish homework /by tomorrow
+deadline finish homework /by 29-02-12 2359
 deadline submit assignment /by next Monday
 deadline prepare slides /by next Friday
 deadline review notes /by
