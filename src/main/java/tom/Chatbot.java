@@ -1,3 +1,5 @@
+package tom;
+
 import java.util.Queue;
 import java.util.LinkedList;
 
@@ -8,7 +10,7 @@ public class Chatbot {
     private final Queue<Event> events;
 
     /**
-     * Constructs a Chatbot instance with an initial set of events from the given entity.
+     * Constructs a tom.Chatbot instance with an initial set of events from the given entity.
      *
      * @param tom The source of initial events for the chatbot.
      */

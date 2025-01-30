@@ -1,3 +1,5 @@
+package tom;
+
 /**
  * Represents a basic task with a description and completion status.
  */
@@ -6,7 +8,7 @@ public class Pair {
     private boolean done;
 
     /**
-     * Constructs a Pair instance with the specified description and completion status.
+     * Constructs a tom.Pair instance with the specified description and completion status.
      *
      * @param item The description of the task.
      * @param done The completion status of the task.

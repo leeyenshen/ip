@@ -1,3 +1,5 @@
+package tom;
+
 import java.util.LinkedList;
 
 /**
@@ -7,7 +9,7 @@ public class List{
     private LinkedList<Pair> list;
 
     /**
-     * Constructs a List instance with a specified LinkedList of tasks.
+     * Constructs a tom.List instance with a specified LinkedList of tasks.
      *
      * @param list A pre-existing LinkedList containing tasks to initialize the list.
      */
@@ -16,7 +18,7 @@ public class List{
     }
 
     /**
-     * Constructs an empty List instance.
+     * Constructs an empty tom.List instance.
      */
     public List() {
         this.list = new LinkedList<>();

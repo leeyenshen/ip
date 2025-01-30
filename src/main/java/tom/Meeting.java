@@ -1,10 +1,12 @@
+package tom;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
  * Represents a meeting with a specific time frame.
- * A Meeting includes a description, start time, and end time.
+ * A tom.Meeting includes a description, start time, and end time.
  */
 public class Meeting extends Pair{
     private LocalDate dateFrom;
@@ -19,7 +21,7 @@ public class Meeting extends Pair{
     }
 
     /**
-     * Constructs a Meeting instance with the specified details.
+     * Constructs a tom.Meeting instance with the specified details.
      *
      * @param item The description of the meeting.
      * @param done Whether the meeting task is completed.
@@ -33,9 +35,9 @@ public class Meeting extends Pair{
     }
 
     /**
-     * Returns a string representation of the Meeting, including its status and time frame.
+     * Returns a string representation of the tom.Meeting, including its status and time frame.
      *
-     * @return A string representing the Meeting.
+     * @return A string representing the tom.Meeting.
      */
     @Override
     public String toString() {

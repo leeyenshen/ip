@@ -1,3 +1,5 @@
+package tom;
+
 import java.util.Scanner;
 
 public class Ui {
@@ -50,7 +52,7 @@ public class Ui {
     }
 
     public void greeting() {
-        System.out.println("Hello! I'm Tom\nWhat can I do for you?");
+        System.out.println("Hello! I'm tom.Tom\nWhat can I do for you?");
         System.out.println(Event.LINE);
     }
 

@@ -1,3 +1,5 @@
+package tom;
+
 /**
  * Represents the main entry point for the chatbot application.
  * This class initializes the chatbot with its initial events and starts it.
@@ -32,7 +34,7 @@ public class Tom {
     /**
      * Retrieves the initial events to be processed by the chatbot.
      *
-     * @return The first event for the chatbot, which is a Greeting event.
+     * @return The first event for the chatbot, which is a tom.Greeting event.
      */
 
     public Event getInitialEvents() {

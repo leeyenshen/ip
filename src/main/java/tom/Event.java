@@ -1,3 +1,5 @@
+package tom;
+
 /**
  * Represents an abstract event.
  * Subclasses should implement the `simulate` method to define

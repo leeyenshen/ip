@@ -1,10 +1,12 @@
+package tom;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
  * Represents a task with a deadline.
- * A Deadline includes a description of the task and a date/time by which it must be completed.
+ * A tom.Deadline includes a description of the task and a date/time by which it must be completed.
  */
 public class Deadline extends Pair{
     private LocalDateTime timeby;
@@ -15,7 +17,7 @@ public class Deadline extends Pair{
         this.dateby = dateby;
     }
     /**
-     * Constructs a Deadline instance with the specified details.
+     * Constructs a tom.Deadline instance with the specified details.
      *
      * @param item The description of the deadline task.
      * @param done Whether the task has been completed.
@@ -28,9 +30,9 @@ public class Deadline extends Pair{
     }
 
     /**
-     * Returns a string representation of the Deadline, including its status and deadline date/time.
+     * Returns a string representation of the tom.Deadline, including its status and deadline date/time.
      *
-     * @return A string representing the Deadline.
+     * @return A string representing the tom.Deadline.
      */
     @Override
     public String toString() {

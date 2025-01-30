@@ -1,9 +1,11 @@
+package tom;
+
 /**
  * Represents exceptions specific to the chatbot's operation.
  */
 public class ChatbotException extends Exception {
     /**
-     * Constructs a ChatbotException with the specified error message.
+     * Constructs a tom.ChatbotException with the specified error message.
      *
      * @param message The detailed error message.
      */

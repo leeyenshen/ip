@@ -1,3 +1,5 @@
+package tom;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -30,7 +32,7 @@ public class Parser {
 
     /**
      * Processes the user's command and performs the corresponding action.
-     * Throws a {@code ChatbotException} with specific error messages for invalid commands.
+     * Throws a {@code tom.ChatbotException} with specific error messages for invalid commands.
      *
      * @param command The user's command input.
      * @throws ChatbotException If the command is invalid or incomplete.

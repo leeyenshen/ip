@@ -1,9 +1,11 @@
+package tom;
+
 /**
  * Represents a simple to-do task.
  */
 public class Todo extends Pair{
     /**
-     * Constructs a Todo instance with the specified description and completion status.
+     * Constructs a tom.Todo instance with the specified description and completion status.
      *
      * @param item The description of the to-do task.
      * @param done Whether the task is completed.
@@ -13,9 +15,9 @@ public class Todo extends Pair{
     }
 
     /**
-     * Returns a string representation of the Todo, including its status.
+     * Returns a string representation of the tom.Todo, including its status.
      *
-     * @return A string representing the Todo.
+     * @return A string representing the tom.Todo.
      */
     @Override
     public String toString() {

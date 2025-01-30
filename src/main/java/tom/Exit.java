@@ -1,3 +1,5 @@
+package tom;
+
 /**
  * Represents the exit event that terminates the program.
  */

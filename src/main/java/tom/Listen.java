@@ -1,3 +1,5 @@
+package tom;
+
 /**
  * Listens for user commands and processes them to perform actions on the task list.
  * Commands include adding, deleting, marking tasks, and exiting the application.
@@ -6,7 +8,7 @@ public class Listen extends Event{
     private List list;
     private ChatbotDataHandler chatbotDataHandler;
     /**
-     * Constructs a Listen instance with the specified task list.
+     * Constructs a tom.Listen instance with the specified task list.
      *
      * @param list The task list to manage and update.
      */
@@ -18,7 +20,7 @@ public class Listen extends Event{
     /**
      * Simulates the event by listening for user input and processing commands.
      *
-     * @return A new Event based on the user command, or the current Listen instance if no valid command is entered.
+     * @return A new tom.Event based on the user command, or the current tom.Listen instance if no valid command is entered.
      */
     @Override
     public Event simulate() {
