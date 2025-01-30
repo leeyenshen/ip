@@ -134,7 +134,7 @@ public class Parser {
                 }
 
             default:
-                throw new ChatbotException("I'm sorry, but I don't know what the command '" + command + "' means. Please try again.");
+                throw new ChatbotException("I'm sorry, but I don't know what the command '" + command.trim() + "' means. Please try again.");
         }
     }
 

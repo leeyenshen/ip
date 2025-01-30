@@ -1,52 +1,78 @@
-todo Tasks
+todo
+todo /random text
+todo
+deadline  
+deadline /by
+deadline finish homework  
+deadline finish homework /on Monday
+deadline finish homework /by yesterday
+deadline finish homework /by 32nd December 2025
+deadline finish homework /by invalid_date
+deadline finish homework /by 10pm
+deadline finish homework /by 2025-13-01
+deadline finish homework /by 2025-12-01T99:99
+event  
+event /from
+event /to
+event team meeting  
+event team meeting /from Monday
+event team meeting /from Monday /to
+event team meeting /from Monday /to Sunday /extra_arg
+event team meeting /from 32nd December 2025 /to 2pm
+event team meeting /from yesterday /to today
+event team meeting /from 10pm /to 9pm
+event team meeting /from 9am /to 9am
+event team meeting /from 10am /to invalid_time
+event team meeting /from 2025-13-01 10am /to 2025-12-01 12pm
 todo read book
-todo write report
-todo call mom
-todo check emails
-todo  
-deadline finish homework /by 29-02-12 2359
+deadline return book /by June 6th
+event project meeting /from Aug 6th 2pm /to 4pm
+mark  
+mark 0  
+mark -1  
+mark 100  
+mark abc  
+mark 1 extra_arg
+unmark  
+unmark 0  
+unmark -1  
+unmark 100  
+unmark abc  
+unmark 1 extra_arg
+delete  
+delete 0  
+delete -1  
+delete 100  
+delete abc  
+delete 1 extra_arg
+randomcommand  
+task do something  
+makr 1  
+un-mark 1  
+todo-  
+dead-line /by tomorrow  
+eve nt /from 2pm /to 4pm  
+deadline return book /by June 6th extra_arg  
+event project meeting /from Aug 6th 2pm /to 4pm extra_arg  
+mark all  
+delete all  
+list all
+list  
+mark 1  
+unmark 1  
+delete 1  
+list
+todo join sports club
 deadline submit assignment /by next Monday
-deadline prepare slides /by next Friday
-deadline review notes /by
-deadline /by next Monday
-deadline submit project
-event team meeting /from Monday 2pm /to 3pm
 event birthday party /from Saturday 6pm /to 11pm
-event conference call /from Tuesday 10am /to 11am
-event lunch /from 12pm /to 1pm
-event /from Tuesday 10am /to 11am
-event department meeting /from /to 4pm
-event community gathering /from 3pm /to
-mark 1
-mark 5
-mark 10
-mark 100
-unmark 1
-unmark 3
-unmark 100
-unmark 0
-list
-delete 2
-delete 3
-delete 10
-delete 100
-delete 0
-todo shopping
-deadline pay bills /by Friday
-event workout session /from 6am /to 7am
-list
+list  
 bye
-list
-mark 1
-mark 2
-unmark 1
-delete 2
-delete 3
-delete 4
-list
-bye
-delete 5
-mark 100
-delete 2
-deadline say hello /from 2019-02-12 2350
-bye
+list  
+mark 1  
+mark 2  
+unmark 1  
+delete 2  
+delete 3  
+delete 4  
+list  
+bye  
