@@ -1,4 +1,8 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 /**
  * Listens for user commands and processes them to perform actions on the task list.
@@ -74,7 +78,22 @@ public class Listen extends Event{
             if (deadlineParts.length < 2 || deadlineParts[0].trim().isEmpty() || deadlineParts[1].trim().isEmpty()) {
                 throw new ChatbotException("The description or due date of a deadline cannot be empty.");
             }
-            this.list.add(new Deadline(deadlineParts[0].trim(), false, deadlineParts[1].trim()));
+            String inputDate = deadlineParts[1].trim();
+            try {
+                if (inputDate.contains(" ")) {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+                    LocalDateTime date = LocalDateTime.parse(inputDate, formatter);
+                    this.list.add(new Deadline(deadlineParts[0].trim(), false, date));
+                } else {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate date = LocalDate.parse(inputDate, formatter);
+                    this.list.add(new Deadline(deadlineParts[0].trim(), false, date));
+                }
+            }
+            catch (DateTimeParseException e) {
+                System.err.println("Invalid date format: " + inputDate);
+                System.out.println("Use yyyy-mm-dd or yyyy-mm-dd HHmm");
+            }
             break;
 
         case "event":
@@ -87,7 +106,25 @@ public class Listen extends Event{
                     eventParts[0].trim().isEmpty() || timeParts[0].trim().isEmpty() || timeParts[1].trim().isEmpty()) {
                 throw new ChatbotException("The description or time periods of an event cannot be empty.");
             }
-            this.list.add(new Meeting(eventParts[0].trim(), false, timeParts[0].trim(), timeParts[1].trim()));
+            String from = timeParts[0].trim();
+            String to = timeParts[1].trim();
+            try {
+                if (from.contains(" ")) {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+                    LocalDateTime fromDate = LocalDateTime.parse(from, formatter);
+                    LocalDateTime toDate = LocalDateTime.parse(to, formatter);
+                    this.list.add(new Meeting(eventParts[0].trim(), false, fromDate, toDate));
+                } else {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate fromDate = LocalDate.parse(from, formatter);
+                    LocalDate toDate = LocalDate.parse(to, formatter);
+                    this.list.add(new Meeting(eventParts[0].trim(), false, fromDate, toDate));
+                }
+            }
+            catch (DateTimeParseException e) {
+                System.err.println("Invalid date format: " + from + to);
+                System.out.println("Use yyyy-mm-dd or yyyy-mm-dd HHmm for both");
+            }
             break;
 
         case "mark":

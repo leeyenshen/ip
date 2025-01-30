@@ -1,21 +1,30 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  * Represents a task with a deadline.
  * A Deadline includes a description of the task and a date/time by which it must be completed.
  */
 public class Deadline extends Pair{
-    private String by;
+    private LocalDateTime timeby;
+    private LocalDate dateby;
 
+    public Deadline(String item, boolean done, LocalDate dateby){
+        super(item, done);
+        this.dateby = dateby;
+    }
     /**
      * Constructs a Deadline instance with the specified details.
      *
      * @param item The description of the deadline task.
      * @param done Whether the task has been completed.
-     * @param by The deadline for the task.
+     * @param timeby The deadline for the task.
      */
 
-    public Deadline(String item, boolean done, String by){
+    public Deadline(String item, boolean done, LocalDateTime timeby){
         super(item, done);
-        this.by = by;
+        this.timeby = timeby;
     }
 
     /**
@@ -31,13 +40,23 @@ public class Deadline extends Pair{
         } else {
             temp += "[ ] ";
         }
-        temp += this.getItem() + " (by: " + this.by + ")";
+        if (timeby == null) {
+            temp += this.getItem() + " (by: " + this.dateby.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
+        } else {
+            temp += this.getItem() + " (by: " +
+                        this.timeby.format(DateTimeFormatter.ofPattern("MMM d yyyy h:mm a")) + ")";
+        }
         return temp;
     }
 
     @Override
     public String toFileFormat() {
-        return "D | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
-                    + " | " + this.by;
+        if (timeby == null) {
+            return "D | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
+                    + " | " + this.dateby;
+        } else {
+            return "D | " + (this.isDone() ? "1" : "0") + " | " + this.getItem()
+                    + " | " + this.timeby;
+        }
     }
 }

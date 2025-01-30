@@ -1,6 +1,13 @@
-import javax.sound.midi.SysexMessage;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
+import java.io.FileWriter;
 
 public class ChatbotDataHandler {
 
@@ -97,14 +104,33 @@ public class ChatbotDataHandler {
                 System.out.println("Invalid task format: " + description);
                 return null;
             }
-            return new Deadline(description, isDone, parts[3]);
+            String inputDate = parts[3].trim();
+            if (inputDate.contains(":")) {
+                LocalDateTime date = LocalDateTime.parse(inputDate);
+                return new Deadline(description, isDone, date);
+            } else {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate date = LocalDate.parse(inputDate, formatter);
+                return new Deadline(description, isDone, date);
+            }
 
         case "E": // Event Task
             if (parts.length < 4) {
                 System.out.println("Invalid task format: " + description);
                 return null;
             }
-            return new Meeting(description, isDone, parts[3], parts[4]);
+            String from = parts[3].trim();
+            String to = parts[4].trim();
+            if (from.contains(":")) {
+                LocalDateTime fromDate = LocalDateTime.parse(from);
+                LocalDateTime toDate = LocalDateTime.parse(to);
+                return new Meeting(description, isDone, fromDate, toDate);
+            } else {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate fromDate = LocalDate.parse(from, formatter);
+                LocalDate toDate = LocalDate.parse(to, formatter);
+                return new Meeting(description, isDone, fromDate, toDate);
+            }
 
         default:
             System.out.println("Unknown task type: " + line);
