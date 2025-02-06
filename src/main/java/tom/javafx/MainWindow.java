@@ -37,6 +37,17 @@ public class MainWindow extends AnchorPane {
     /** Injects the Tom instance */
     public void setTom(Tom tom) {
         this.tom = tom;
+        addInitialBotMessage();
+    }
+
+    private void addInitialBotMessage() {
+        if (tom != null) {
+            try {
+                dialogContainer.getChildren().add(DialogBox.getTomDialog(tom.getResponse("list"), tomImage));
+            } catch (ChatbotException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     /**

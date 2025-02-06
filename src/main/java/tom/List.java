@@ -70,7 +70,7 @@ public class List{
         }
         Pair removedTask = this.list.remove(x - 1);
         return "Noted. I've removed this task: " + removedTask.toString() +
-                "Now you have " + this.list.size() + " tasks in the list.";
+                "\nNow you have " + this.list.size() + " tasks in the list.";
 
     }
 
