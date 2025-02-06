@@ -39,4 +39,12 @@ public class Tom {
     public Event getInitialEvents() {
         return new Greeting(this.list, this.chatbotDataHandler);
     }
+
+    public String getResponse(String input) throws ChatbotException {
+        if (input.equalsIgnoreCase("bye")){
+            this.chatbotDataHandler.saveTasks(this.list);
+        }
+        Parser parser = new Parser(new Listen(this.list, this.chatbotDataHandler));
+        return parser.processCommand(input, this.list);
+    }
 }

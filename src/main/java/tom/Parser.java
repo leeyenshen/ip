@@ -26,6 +26,7 @@ public class Parser {
         Ui ui = new Ui();
         try {
             ui.formatOutput(processCommand(command, list));
+
         } catch (ChatbotException e) {
             ui.showCommandError(e);
         }
@@ -42,7 +43,7 @@ public class Parser {
      * @return A message confirming the action taken.
      * @throws ChatbotException If the command is invalid or incomplete.
      */
-    private String processCommand(String command, List list) throws ChatbotException {
+    public String processCommand(String command, List list) throws ChatbotException {
         String[] parts = command.split(" ", 2);
         String action = parts[0].toLowerCase();
 
