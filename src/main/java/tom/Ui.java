@@ -9,10 +9,11 @@ public class Ui {
     private static final Scanner scanner = new Scanner(System.in);
     public static String LINE = "========================================";
 
-    public void formatOutput(String output) {
+    public String formatOutput(String output) {
         System.out.println(Event.LINE);
         System.out.println(output);
         System.out.println(Event.LINE);
+        return output;
     }
 
     public boolean hasNextLine() {
@@ -23,24 +24,28 @@ public class Ui {
         return scanner.nextLine();
     }
 
-    public void listEmpty() {
+    public String listEmpty() {
         System.out.println("JERRYYYYYY!!!! Your list is empty");
         System.out.println(Event.LINE);
+        return "JERRYYYYYY!!!! Your list is empty";
     }
 
-    public void listNotEmpty(List list) {
+    public String listNotEmpty(List list) {
         System.out.println("JERRYYYYYY!!!! Your list is not empty");
         System.out.println(list.display());
         System.out.println(Event.LINE);
+        return "JERRYYYYYY!!!! Your list is not empty";
     }
 
-    public void showCommandError(ChatbotException e){
+    public String showCommandError(ChatbotException e){
         System.out.println("OOPS!!! " + e.getMessage());
         System.out.println(Event.LINE);
+        return "OOPS!!! " + e.getMessage();
     }
 
-    public void showLoadingError() {
+    public String showLoadingError() {
         System.out.println("Error while accessing chatbot data file");
+        return "Error while accessing chatbot data file";
     }
 
     public void startUp() {
@@ -51,16 +56,17 @@ public class Ui {
                     + "    |_|    \\____/  |_|  |_|\n";
         System.out.println(logo);
         System.out.println(LINE);
-
     }
 
-    public void greeting() {
+    public String greeting() {
         System.out.println("Hello! I'm Tom\nWhat can I do for you?");
         System.out.println(Event.LINE);
+        return "Hello! I'm Tom\nWhat can I do for you?";
     }
 
-    public void exit() {
+    public String exit() {
         System.out.println("Bye. Hope to see you again soon!");
         System.out.print(Event.LINE);
+        return "Bye. Hope to see you again soon!";
     }
 }
