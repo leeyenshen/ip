@@ -66,8 +66,10 @@ public class ChatbotDataHandler {
                 ui.listNotEmpty(new List(tasks));
             }
         } catch (IOException e) {
+            System.err.println("Error while loading chatbot data: " + e.getMessage());
+            e.printStackTrace();
             ui.showLoadingError();
-        }
+        }   
         return new List(tasks);
     }
 
