@@ -12,10 +12,12 @@ public class Deadline extends Pair{
     private LocalDateTime timeBy;
     private LocalDate dateBy;
 
-    public Deadline(String item, boolean done, LocalDate dateBy){
+    public Deadline(String item, boolean done, LocalDate dateBy) {
         super(item, done);
+        assert dateBy != null : "Deadline date cannot be null";
         this.dateBy = dateBy;
     }
+
     /**
      * Constructs a tom.Deadline instance with the specified details.
      *
@@ -23,9 +25,9 @@ public class Deadline extends Pair{
      * @param done Whether the task has been completed.
      * @param timeBy The deadline for the task.
      */
-
-    public Deadline(String item, boolean done, LocalDateTime timeBy){
+    public Deadline(String item, boolean done, LocalDateTime timeBy) {
         super(item, done);
+        assert timeBy != null : "Deadline time cannot be null";
         this.timeBy = timeBy;
     }
 
