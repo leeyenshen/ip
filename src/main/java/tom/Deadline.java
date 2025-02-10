@@ -36,20 +36,14 @@ public class Deadline extends Pair{
      */
     @Override
     public String toString() {
-        String temp = "[D]";
-        if (this.isDone()) {
-            temp += "[X] ";
-        } else {
-            temp += "[ ] ";
-        }
-        if (timeBy == null) {
-            temp += this.getItem() + " (by: " + this.dateBy.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
-        } else {
-            temp += this.getItem() + " (by: " +
-                        this.timeBy.format(DateTimeFormatter.ofPattern("MMM d yyyy h:mm a")) + ")";
-        }
-        return temp;
+        String status = this.isDone() ? "[X] " : "[ ] ";
+        String timeString = (timeBy != null)
+                ? timeBy.format(DateTimeFormatter.ofPattern("MMM d yyyy h:mm a"))
+                : dateBy.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
+
+        return "[D]" + status + this.getItem() + " (by: " + timeString + ")";
     }
+
 
     @Override
     public String toFileFormat() {
