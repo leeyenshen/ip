@@ -21,6 +21,7 @@ public class Ui {
     }
 
     public String nextLine() {
+        assert scanner != null : "Scanner should be initialized";
         return scanner.nextLine();
     }
 

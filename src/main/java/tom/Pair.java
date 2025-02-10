@@ -14,6 +14,7 @@ public class Pair {
      * @param done The completion status of the task.
      */
     public Pair(String item, boolean done) {
+        assert item != null : "Task description cannot be null";
         this.item = item;
         this.done = done;
     }
