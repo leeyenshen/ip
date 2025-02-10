@@ -76,14 +76,19 @@ public class List{
     }
 
     /**
-     * Adds a new task to the list.
+     * Adds a new task to the list if it is not a duplicate.
      *
-     * @param item The task to be added.
+     * @param task The task to be added.
+     * @return A confirmation message if added successfully, otherwise a warning message.
      */
-    public String add(Pair item){
-        this.list.add(item);
-        return "Got it. I've added this task: " + item.toString()
-                    + "\nNow you have " + this.list.size() + " tasks in the list";
+    public String add(Pair task) {
+        if (containsDuplicate(task)) {
+            return "Duplicate task detected! Task was not added.";
+        }
+
+        this.list.add(task);
+        return "Got it. I've added this task: " + task.toString()
+                + "\nNow you have " + this.list.size() + " tasks in the list.";
     }
 
     /**
@@ -126,5 +131,20 @@ public class List{
         }
 
         return found ? result.toString() : "No matching tasks found.";
+    }
+
+    /**
+     * Checks if a task with the same description already exists in the list.
+     *
+     * @param task The task to check for duplicates.
+     * @return True if a duplicate exists, false otherwise.
+     */
+    public boolean containsDuplicate(Pair task) {
+        for (Pair existingTask : this.list) {
+            if (existingTask.getItem().equalsIgnoreCase(task.getItem())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
