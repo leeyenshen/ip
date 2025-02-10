@@ -31,7 +31,8 @@ public class List{
      * @param x The index of the task to mark as done (1-based index).
      */
     public String mark(int x) throws ChatbotException {
-        if (x < MIN_INDEX || x > this.list.size()) {
+        assert x > 0 && x <= this.list.size() : "Index out of bounds for marking task";
+        if (x > this.list.size() || x <= MIN_INDEX) {
             throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
         Pair item = this.list.get(x - 1);
@@ -66,13 +67,13 @@ public class List{
      * @throws ChatbotException If the index is invalid.
      */
     public String delete(int x) throws ChatbotException {
+        assert x > 0 && x <= this.list.size() : "Index out of bounds for deleting task";
         if (x <= 0 || x > this.list.size()) {
             throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
         Pair removedTask = this.list.remove(x - 1);
         return "Noted. I've removed this task: " + removedTask.toString() +
-                "\nNow you have " + this.list.size() + " tasks in the list.";
-
+                "Now you have " + this.list.size() + " tasks in the list.";
     }
 
     /**

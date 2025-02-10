@@ -14,8 +14,10 @@ public class Meeting extends Pair{
     private LocalDateTime timeFrom;
     private LocalDateTime timeTo;
 
-    public Meeting(String item, boolean done, LocalDate from, LocalDate to){
+    public Meeting(String item, boolean done, LocalDate from, LocalDate to) {
         super(item, done);
+        assert from != null && to != null : "Meeting start and end dates cannot be null";
+        assert !from.isAfter(to) : "Start date cannot be after end date";
         this.dateFrom = from;
         this.dateTo = to;
     }
@@ -28,8 +30,10 @@ public class Meeting extends Pair{
      * @param from The start time of the meeting.
      * @param to The end time of the meeting.
      */
-    public Meeting(String item, boolean done, LocalDateTime from, LocalDateTime to){
+    public Meeting(String item, boolean done, LocalDateTime from, LocalDateTime to) {
         super(item, done);
+        assert from != null && to != null : "Meeting start and end times cannot be null";
+        assert !from.isAfter(to) : "Start time cannot be after end time";
         this.timeFrom = from;
         this.timeTo = to;
     }
