@@ -121,17 +121,17 @@ public class List{
      */
     public String find(String keyword) {
         StringBuilder result = new StringBuilder("Here are the matching tasks in your list:\n");
-        boolean found = false;
+        boolean isFound = false;
 
         for (int i = 0; i < list.size(); i++) {
             Pair task = list.get(i);
             if (task.getItem().toLowerCase().contains(keyword.toLowerCase())) {
                 result.append(i + 1).append(".").append(task).append("\n");
-                found = true;
+                isFound = true;
             }
         }
 
-        return found ? result.toString() : "No matching tasks found.";
+        return isFound ? result.toString() : "No matching tasks found.";
     }
 
     /**

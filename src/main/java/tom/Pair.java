@@ -5,27 +5,27 @@ package tom;
  */
 public class Pair {
     private String item;
-    private boolean done;
+    private boolean isDone;
 
     /**
      * Constructs a tom.Pair instance with the specified description and completion status.
      *
      * @param item The description of the task.
-     * @param done The completion status of the task.
+     * @param isDone The completion status of the task.
      */
-    public Pair(String item, boolean done) {
+    public Pair(String item, boolean isDone) {
         assert item != null : "Task description cannot be null";
         this.item = item;
-        this.done = done;
+        this.isDone = isDone;
     }
 
     /**
      * Marks the task as done or not done.
      *
-     * @param done True to mark the task as done, false to mark it as not done.
+     * @param isDone True to mark the task as done, false to mark it as not done.
      */
-    public void mark(boolean done) {
-        this.done = done;
+    public void mark(boolean isDone) {
+        this.isDone = isDone;
     }
 
     /**
@@ -34,7 +34,7 @@ public class Pair {
      * @return True if the task is done, false otherwise.
      */
     public boolean isDone() {
-        return this.done;
+        return this.isDone;
     }
 
     /**
