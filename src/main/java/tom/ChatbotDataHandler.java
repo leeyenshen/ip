@@ -89,20 +89,63 @@ public class ChatbotDataHandler {
             System.out.println("Invalid task format: " + line);
             return null;
         }
+
         String type = parts[0];
         boolean isDone = parts[1].equals("1");
         String description = parts[2];
 
         switch (type) {
-        case "T": // tom.Todo Task
-            return new Todo(description, isDone);
+        case "T":
+            return parseTodo(description, isDone);
+        case "D":
+            return parseDeadline(parts, description, isDone);
+        case "E":
+            return parseEvent(parts, description, isDone);
+        default:
+            System.out.println("Unknown task type: " + line);
+            return null;
+        }
+    }
 
-        case "D": // tom.Deadline Task
-            if (parts.length < 4) {
-                System.out.println("Invalid task format: " + description);
-                return null;
-            }
-            String inputDate = parts[3].trim();
+    /**
+     * Parses a Todo task.
+     *
+     * @param description The description of the task.
+     * @param isDone The completion status of the task.
+     * @return A new Todo object.
+     */
+    private static Todo parseTodo(String description, boolean isDone) {
+        return new Todo(description, isDone);
+    }
+
+    /**
+     * Parses a Deadline task.
+     *
+     * @param parts The split parts of the task string.
+     * @param description The task description.
+     * @param isDone The completion status of the task.
+     * @return A new Deadline object or null if parsing fails.
+     */
+    private static Deadline parseDeadline(String[] parts, String description, boolean isDone) {
+        if (parts.length < 4) {
+            System.out.println("Invalid task format: " + description);
+            return null;
+        }
+
+        String inputDate = parts[3].trim();
+        return parseDeadlineDate(inputDate, description, isDone);
+    }
+
+    /**
+     * Parses the date for a Deadline task.
+     *
+     * @param inputDate The date string.
+     * @param description The task description.
+     * @param isDone The completion status of the task.
+     * @return A new Deadline object.
+     */
+    private static Deadline parseDeadlineDate(String inputDate, String description, boolean isDone) {
+        try {
             if (inputDate.contains(":")) {
                 LocalDateTime date = LocalDateTime.parse(inputDate);
                 return new Deadline(description, isDone, date);
@@ -111,14 +154,42 @@ public class ChatbotDataHandler {
                 LocalDate date = LocalDate.parse(inputDate, formatter);
                 return new Deadline(description, isDone, date);
             }
+        } catch (Exception e) {
+            System.out.println("Error parsing deadline date: " + inputDate);
+            return null;
+        }
+    }
 
-        case "E": // tom.Event Task
-            if (parts.length < 4) {
-                System.out.println("Invalid task format: " + description);
-                return null;
-            }
-            String from = parts[3].trim();
-            String to = parts[4].trim();
+    /**
+     * Parses an Event task.
+     *
+     * @param parts The split parts of the task string.
+     * @param description The task description.
+     * @param isDone The completion status of the task.
+     * @return A new Meeting object or null if parsing fails.
+     */
+    private static Meeting parseEvent(String[] parts, String description, boolean isDone) {
+        if (parts.length < 5) {
+            System.out.println("Invalid task format: " + description);
+            return null;
+        }
+
+        String from = parts[3].trim();
+        String to = parts[4].trim();
+        return parseEventDates(from, to, description, isDone);
+    }
+
+    /**
+     * Parses the dates for an Event task.
+     *
+     * @param from The starting date/time.
+     * @param to The ending date/time.
+     * @param description The task description.
+     * @param isDone The completion status of the task.
+     * @return A new Meeting object.
+     */
+    private static Meeting parseEventDates(String from, String to, String description, boolean isDone) {
+        try {
             if (from.contains(":")) {
                 LocalDateTime fromDate = LocalDateTime.parse(from);
                 LocalDateTime toDate = LocalDateTime.parse(to);
@@ -129,12 +200,12 @@ public class ChatbotDataHandler {
                 LocalDate toDate = LocalDate.parse(to, formatter);
                 return new Meeting(description, isDone, fromDate, toDate);
             }
-
-        default:
-            System.out.println("Unknown task type: " + line);
+        } catch (Exception e) {
+            System.out.println("Error parsing event dates: " + from + " to " + to);
             return null;
         }
     }
+
 
     /**
      * Saves the current task list back to the file.
