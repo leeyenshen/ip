@@ -7,6 +7,7 @@ import java.util.LinkedList;
  */
 public class List{
     private LinkedList<Pair> list;
+    private static final int MIN_INDEX = 1;
 
     /**
      * Constructs a tom.List instance with a specified LinkedList of tasks.
@@ -31,7 +32,7 @@ public class List{
      */
     public String mark(int x) throws ChatbotException {
         assert x > 0 && x <= this.list.size() : "Index out of bounds for marking task";
-        if (x > this.list.size() || x <= 0) {
+        if (x > this.list.size() || x <= MIN_INDEX) {
             throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
         Pair item = this.list.get(x - 1);

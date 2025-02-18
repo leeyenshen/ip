@@ -17,7 +17,7 @@ public class Exit extends Event{
      */
     @Override
     public Event simulate() {
-        this.chatbotDataHandler.saveTasks(this.list);
+        chatbotDataHandler.saveTasks(list);
         new Ui().exit();
         return null;
     }
