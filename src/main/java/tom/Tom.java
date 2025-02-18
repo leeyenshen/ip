@@ -22,7 +22,8 @@ public class Tom {
     }
 
     /**
-     * The main method that launches the chatbot application.
+     * Entry point for the chatbot application.
+     * Initializes the chatbot and starts processing user input.
      *
      * @param args Command-line arguments (not used).
      */
