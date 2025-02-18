@@ -7,7 +7,7 @@ import java.util.LinkedList;
  */
 public class List{
     private LinkedList<Pair> list;
-    private static final int MIN_INDEX = 1;
+    private static final int MIN_INDEX = 0;
 
     /**
      * Constructs a tom.List instance with a specified LinkedList of tasks.
@@ -49,7 +49,7 @@ public class List{
      * @param x The index of the task to mark as not done (1-based index).
      */
     public String unmark(int x) throws ChatbotException{
-        if (x >= this.list.size() || x <= 0) {
+        if (x > this.list.size() || x <= MIN_INDEX) {
             throw new ChatbotException("This item does not exist JERRYYYYYY!!!!");
         }
         Pair item = this.list.get(x - 1);
