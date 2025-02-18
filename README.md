@@ -1,26 +1,81 @@
-# Duke project template
+# Tom - A Personal Task Manager Chatbot
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+![Tom Logo](https://your-image-link-here.com)
 
-## Setting up in Intellij
+## 📌 Introduction
+Tom is a **task management chatbot** designed to help users keep track of their daily tasks, deadlines, and meetings. It is built with **Java** and follows an **event-driven** approach to ensure seamless user interaction.
 
-Prerequisites: JDK 17, update Intellij to the most recent version.
+## ✨ Features
+- ✅ Add **To-Dos**, **Deadlines**, and **Meetings**
+- 📅 Supports **date and time parsing**
+- ✏️ **Mark, unmark, delete, and list tasks**
+- 🔍 **Search** for specific tasks
+- 💾 **Data persistence** to save tasks between sessions
+- 🖥️ **Command-line interface** for quick task management
 
-1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project first)
-1. Open the project into Intellij as follows:
-   1. Click `Open`.
-   1. Select the project directory, and click `OK`.
-   1. If there are any further prompts, accept the defaults.
-1. Configure the project to use **JDK 17** (not other versions) as explained in [here](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk).<br>
-   In the same dialog, set the **Project language level** field to the `SDK default` option.
-1. After that, locate the `src/main/java/Duke.java` file, right-click it, and choose `Run Duke.main()` (if the code editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the below as the output:
+## 🚀 Getting Started
+### Prerequisites
+Ensure you have **Java 17 Azulu** installed.
+
+## 📜 Usage
+### Available Commands
+| Command | Description |
+|---------|-------------|
+| `todo TASK_NAME` | Adds a new to-do task |
+| `deadline TASK_NAME /by YYYY-MM-DD` | Adds a deadline task |
+| `event EVENT_NAME /from YYYY-MM-DD /to YYYY-MM-DD` | Adds a meeting task |
+| `list` | Displays all tasks |
+| `mark TASK_NUMBER` | Marks a task as done |
+| `unmark TASK_NUMBER` | Marks a task as not done |
+| `delete TASK_NUMBER` | Deletes a task |
+| `find KEYWORD` | Finds tasks containing the keyword |
+| `bye` | Exits the chatbot |
+
+## 🛠 Project Structure
+```
+/ip
+│── src/tom
+│   ├── Tom.java               # Entry point for the chatbot
+│   ├── Chatbot.java           # Handles event processing
+│   ├── List.java              # Task list manager
+│   ├── Parser.java            # Command parser
+│   ├── Ui.java                # Handles user interactions
+│   ├── ChatbotDataHandler.java # Manages task storage
+│   ├── Events (Folder)
+│   │   ├── Event.java
+│   │   ├── Greeting.java
+│   │   ├── Listen.java
+│   │   ├── Exit.java
+│   ├── Tasks (Folder)
+│   │   ├── Pair.java
+│   │   ├── Todo.java
+│   │   ├── Deadline.java
+│   │   ├── Meeting.java
+│── data/Tom.txt                # Stored task data
+│── README.md                    # Project documentation
+```
+
+## 📂 File Descriptions
+- **`Tom.java`** - Main entry point of the chatbot
+- **`Chatbot.java`** - Handles chatbot execution flow
+- **`Parser.java`** - Parses user commands and executes tasks
+- **`List.java`** - Manages task storage and manipulation
+- **`ChatbotDataHandler.java`** - Loads and saves tasks to a file
+- **`Ui.java`** - Handles user interactions
+- **`Pair.java`** - Parent class for all tasks
+- **`Todo.java`**, **`Deadline.java`**, **`Meeting.java`** - Task types
+- **`Event.java`**, **`Greeting.java`**, **`Listen.java`**, **`Exit.java`** - Event-driven architecture
+
+## 🧪 Running Tests
+This project includes **JUnit tests** to ensure reliability.
+1. **Compile the tests**:
+   ```sh
+   javac -d bin -cp .:lib/junit5.jar src/tom/tests/*.java
    ```
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
+2. **Run the tests**:
+   ```sh
+   java -jar lib/junit-platform-console-standalone.jar --class-path bin --scan-classpath
    ```
+---
+💡 *Tom: Because task management should be as simple as a conversation.* 🗣️
 
-**Warning:** Keep the `src\main\java` folder as the root folder for Java files (i.e., don't rename those folders or move Java files to another folder outside of this folder path), as this is the default location some tools (e.g., Gradle) expect to find Java files.

@@ -17,24 +17,6 @@ Tom is a **task management chatbot** designed to help users keep track of their 
 ### Prerequisites
 Ensure you have **Java 17 Azulu** installed.
 
-### Setup
-1. **Clone the repository**:
-   ```sh
-   git clone https://github.com/leeyenshen/ip.git
-   ```
-2. **Navigate to the project directory**:
-   ```sh
-   cd ip
-   ```
-3. **Compile the program**:
-   ```sh
-   javac -d bin src/tom/*.java
-   ```
-4. **Run the chatbot**:
-   ```sh
-   java -cp bin tom.Tom
-   ```
-
 ## 📜 Usage
 ### Available Commands
 | Command | Description |
